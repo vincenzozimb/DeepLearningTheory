@@ -1,4 +1,4 @@
-# Welcome to your Jupyter Book
+# Welcome
 
 # Introduction
 

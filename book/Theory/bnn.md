@@ -1,3 +1,3 @@
-# Chapter 0
+# Bayesian Neural Networks
 
 Paper {cite}`Pacelli_2023`
