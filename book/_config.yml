@@ -30,3 +30,12 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+# ---------------------------------------------------------------------------------
+# Other settings
+
+# this should improve loading speed when there is a lot of math  
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
