@@ -1,1 +1,0 @@
-# Partition function of 1 HL FC NN

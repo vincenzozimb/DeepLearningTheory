@@ -1,1 +1,0 @@
-# Neural Networks and Gaussian Processes correspondence

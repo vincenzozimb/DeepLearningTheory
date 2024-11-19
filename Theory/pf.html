@@ -16,19 +16,17 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -38,11 +36,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -60,13 +57,14 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Theory/pf';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Neural Networks and Gaussian Processes correspondence" href="nngp.html" />
+    <link rel="prev" title="Bayesian Neural Networks" href="bnn.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -82,8 +80,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -91,6 +100,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -98,8 +108,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -115,8 +125,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -146,17 +155,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="Deep Learning Theory - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Deep Learning Theory - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Deep Learning Theory - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -168,9 +181,9 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Misc/formulae.html">Tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bnn.html">Bayesian Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Misc/formulae.html">Tables, formulae and miscellaneous</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bnn.html">Bayesian Neural Networks</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Partition function of 1 HL FC NN</a></li>
 </ul>
 
@@ -326,17 +339,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </button>
-
 </div></div>
       
     </div>
@@ -352,6 +375,19 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partition-function-calculation-for-a-1-hl-fc-nn-single-output">Partition function calculation for a 1 HL FC NN, single output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notations">Notations:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partition-function-calculation">Partition function calculation:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -363,6 +399,89 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="partition-function-of-1-hl-fc-nn">
 <h1>Partition function of 1 HL FC NN<a class="headerlink" href="#partition-function-of-1-hl-fc-nn" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Paper <span id="id1">[<a class="reference internal" href="../welcome.html#id2" title="R. Pacelli, S. Ariosto, M. Pastore, F. Ginelli, M. Gherardi, and P. Rotondo. A statistical mechanics framework for bayesian deep neural networks beyond the infinite-width limit. Nature Machine Intelligence, 5(12):1497–1507, December 2023. URL: http://dx.doi.org/10.1038/s42256-023-00767-6, doi:10.1038/s42256-023-00767-6.">PAP+23</a>]</span></p>
+</section>
+<section id="partition-function-calculation-for-a-1-hl-fc-nn-single-output">
+<h2>Partition function calculation for a 1 HL FC NN, single output<a class="headerlink" href="#partition-function-calculation-for-a-1-hl-fc-nn-single-output" title="Link to this heading">#</a></h2>
+<section id="notations">
+<h3>Notations:<a class="headerlink" href="#notations" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(i_k\)</span> runs from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(N_k\)</span> (<span class="math notranslate nohighlight">\(k=0,1\)</span>). <span class="math notranslate nohighlight">\(N_0\)</span> is the dimension of the input space while <span class="math notranslate nohighlight">\(N_1\)</span> the width of the hidden layer.</p></li>
+<li><p>Greek indexes <span class="math notranslate nohighlight">\(\mu, \nu\)</span> from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(P\)</span>, where <span class="math notranslate nohighlight">\(P\)</span> is the size of the dataset.</p></li>
+<li><p>Einstein summation convention is assumed on the <span class="math notranslate nohighlight">\(i_k\)</span> unless otherwise specified, but not on <span class="math notranslate nohighlight">\(\mu,\nu\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Dv = \prod_{i_1} dv_{i_1}, \quad Dw = \prod_{i_0i_1} dw_{i_1i_0}, \quad Dh^\mu = \prod_{i_1} dh_{i_1}^\mu\)</span>.</p></li>
+</ul>
+<p>The output of the NN is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+f_\theta(x^\mu) = \frac{1}{\sqrt{N_1}} v_{i_1} \sigma \left( \frac{1}{\sqrt{N_0}} w_{i_1i_0}x_{i_0}^\mu \right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the activation function.</p>
+<p>The loss function is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\beta \mathcal{L} = \frac{\beta}{2}\sum_\mu (y^\mu - f_\theta(x^\mu))^2 + \frac{\lambda_1}{2}v_{i_1}v_{i_1} +\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0}.
+\]</div>
+</section>
+<section id="partition-function-calculation">
+<h3>Partition function calculation:<a class="headerlink" href="#partition-function-calculation" title="Link to this heading">#</a></h3>
+<p>As a first step, to decouple the nested integrals over the weigths, let us introduce delta functions over the preactivations and the output values, as follows:</p>
+<div class="full-width docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Z} &amp;= \int DvDw \exp \left\{ -\frac{\beta}{2}\sum_\mu (y^\mu - f_\theta(x^\mu))^2 - \frac{\lambda_1}{2}v_{i_1}v_{i_1} -\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0} \right\} \\
+% ------------------------------------------------------------------------------------
+&amp;= \int DvDw \left(\prod_\mu ds^\mu Dh^\mu\right)  \exp \left\{ -\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 - \frac{\lambda_1}{2}v_{i_1}v_{i_1} -\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0} \right\} \times \\
+&amp; \qquad \times \prod_\mu \delta \left( s^\mu - \frac{v_{i_1}\sigma(h_{i_1}^\mu)}{\sqrt{N_1}} \right) \prod_{\mu,i_1} \delta \left( h_{i_1}^\mu - \frac{w_{i_1i_0}x_{i_0}^\mu}{\sqrt{N_0}} \right).
+\end{split}\]</div>
+<p>Now insert the integral representation of the Dirac deltas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+&amp;= \int DvDw \left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \frac{Dh^\mu D\bar{h}^\mu}{(2\pi)^{N_1}}\right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 - \frac{\lambda_1}{2}v_{i_1}v_{i_1} -\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0}\right] \times \\
+&amp; \qquad \times \exp\left(i\sum_\mu s^\mu \bar{s}^\mu -i \frac{v_{i_1}}{\sqrt{N_1}}\sum_\mu \bar{s}^\mu \sigma(h_{i_1}^\mu)\right) \exp\left(i\sum_\mu h_{i_1}^\mu \bar{h}_{i_1}^\mu -i \frac{w_{i_1i_0}}{\sqrt{N_0}}\sum_\mu \bar{h}_{i_1}^\mu x_{i_0}^\mu\right).
+\end{split}\]</div>
+<p>Now the integrals over the weigths can be isolated. Let us calculate them separately.</p>
+<ul class="simple">
+<li><p>Integral over the <span class="math notranslate nohighlight">\(v\)</span> variables:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+&amp;\int Dv ~ \exp \left[-\frac{\lambda_1}{2}v_{i_1}v_{i_1}\right] \exp \left[-i\frac{v_{i_1}}{\sqrt{N_1}}\sum_\mu \bar{s}^\mu \sigma(h_{i_1}^\mu) \right] = \\
+=&amp; \prod_{i_1} \int dv_{i_1} ~ \exp \left[-\frac{\lambda_1}{2}v_{i_1}^2\right] \exp \left[-i\frac{v_{i_1}}{\sqrt{N_1}}\sum_\mu \bar{s}^\mu \sigma(h_{i_1}^\mu) \right] &amp; \qquad \text{(no sum)} \\
+=&amp; \left( \frac{2\pi}{\lambda_1} \right)^{N_1/2} \exp \left[ -\frac{1}{2\lambda_1 N_1}\sum_{\mu\nu}\bar{s}^\mu \bar{s}^\nu \sigma(h_{i_1}^\mu)\sigma(h_{i_1}^\nu) \right]
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Integral over the <span class="math notranslate nohighlight">\(w\)</span> variables:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+&amp;\int Dw ~ \exp \left[-\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0}\right] \exp \left[-i\frac{w_{i_1i_0}}{\sqrt{N_0}}\sum_\mu \bar{h}_{i_1}^\mu x_{i_0}^\mu \right] = \\
+=&amp; \prod_{i_0i_1} \int dw_{i_1i_0} ~ \exp \left[-\frac{\lambda_0}{2}w_{i_1i_0}^2\right] \exp \left[-i\frac{w_{i_1i_0}}{\sqrt{N_0}}\sum_\mu \bar{h}_{i_1}^\mu x_{i_0}^\mu \right] &amp; \qquad \text{(no sum)} \\
+=&amp; \left( \frac{2\pi}{\lambda_0} \right)^{N_0N_1/2} \exp \left[ -\frac{1}{2\lambda_0 N_0}\sum_{\mu\nu}\bar{h}_{i_1}^\mu \bar{h}_{i_1}^\nu x_{i_0}^\mu x_{i_0}^\nu \right]
+\end{split}\]</div>
+<p>Define <span class="math notranslate nohighlight">\(A:=(2\pi/\lambda_1)^{N_1/2} (2\pi/\lambda_0)^{N_0N_1/2}\)</span>. The partition function is then:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Z} &amp;= A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \frac{Dh^\mu D\bar{h}^\mu}{(2\pi)^{N_1}}\right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu (s^\mu \bar{s}^\mu + h_{i_1}^\mu \bar{h}_{i_1}^\mu)  \right] \times \\
+&amp; \qquad \times \exp \left[ -\frac{1}{2\lambda_1 N_1}\sum_{\mu\nu}\bar{s}^\mu \bar{s}^\nu \sigma(h_{i_1}^\mu)\sigma(h_{i_1}^\nu) -\frac{1}{2\lambda_0 N_0}\sum_{\mu\nu}\bar{h}_{i_1}^\mu \bar{h}_{i_1}^\nu x_{i_0}^\mu x_{i_0}^\nu \right]
+\end{split}\]</div>
+<p>Notice that the integrals over the <span class="math notranslate nohighlight">\(h\)</span> variables are all equals, so:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Z} &amp;= A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] \times \\
+&amp; \qquad \times \left[ \int \left(\prod_\mu \frac{Dh^\mu D\bar{h}^\mu}{2\pi}\right) \exp \left( i\sum_\mu h^\mu \bar{h}^\mu -\frac{1}{2\lambda_1 N_1}\sum_{\mu\nu}\bar{s}^\mu \bar{s}^\nu \sigma(h_{i_1}^\mu)\sigma(h_{i_1}^\nu) -\frac{1}{2\lambda_0 N_0}\sum_{\mu\nu}\bar{h}_{i_1}^\mu \bar{h}_{i_1}^\nu x_{i_0}^\mu x_{i_0}^\nu \right) \right]^{N_1}
+\end{split}\]</div>
+<h4 class="rubric" id="gram-matrix">Gram matrix</h4>
+<p>Let us introduce the <span class="math notranslate nohighlight">\(P \times P\)</span> matrix with elements (remember the sum over <span class="math notranslate nohighlight">\(i_0\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+C_{\mu\nu} := \frac{1}{\lambda_0N_0} x_{i_0}^\mu x_{i_0}^\nu.
+\]</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -396,12 +515,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="nngp.html"
+       href="bnn.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Neural Networks and Gaussian Processes correspondence</p>
+        <p class="prev-next-title">Bayesian Neural Networks</p>
       </div>
     </a>
 </div>
@@ -410,6 +529,26 @@
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partition-function-calculation-for-a-1-hl-fc-nn-single-output">Partition function calculation for a 1 HL FC NN, single output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notations">Notations:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partition-function-calculation">Partition function calculation:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -454,8 +593,8 @@ By Vincenzo Zimbardo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
