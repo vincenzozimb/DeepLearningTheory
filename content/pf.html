@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Partition function of 1 HL FC NN (single output) &#8212; Deep Learning Theory</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=550fd47b" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/pf';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Extention for non-zero mean activation functions" href="relu.html" />
+    <link rel="prev" title="Bayesian Neural Networks" href="bnn.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="welcome.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Deep Learning Theory - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Deep Learning Theory - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="welcome.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="formulae.html">Tables, formulae</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning Theory</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bnn.html">Bayesian Neural Networks</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Partition function of 1 HL FC NN (single output)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="relu.html">Extention for non-zero mean activation functions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing layout</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Test/test1.html">Test 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Test/test2.html">Test 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="Test/test21.html">Test 2.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Test/test211.html">Test 211</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Test/test212.html">Test 212</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="Test/test22.html">Test 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Test/test23.html">Test 2.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Test/test3.html">Test 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Test/test4.html">Test 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Test/test5.html">Test 5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Test/test51.html">Test 5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Test/test52.html">Test 5.2</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/pf.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Partition function of 1 HL FC NN (single output)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notations">Notations:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-calculation">Full calculation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrals-over-the-weigths">Integrals over the weigths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gram-matrix">Gram matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#going-back-to-the-partition-function">Going back to the partition function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-q">Distribution of <span class="math notranslate nohighlight">\(q\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-mean-activation-functions">Zero-mean activation functions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#breuer-major-theorem">Breuer-Major theorem</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-the-calculation">Continuing the calculation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="partition-function-of-1-hl-fc-nn-single-output">
+<h1>Partition function of 1 HL FC NN (single output)<a class="headerlink" href="#partition-function-of-1-hl-fc-nn-single-output" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Paper <span id="id1">[<a class="reference internal" href="welcome.html#id2" title="R. Pacelli, S. Ariosto, M. Pastore, F. Ginelli, M. Gherardi, and P. Rotondo. A statistical mechanics framework for bayesian deep neural networks beyond the infinite-width limit. Nature Machine Intelligence, 5(12):1497–1507, December 2023. URL: http://dx.doi.org/10.1038/s42256-023-00767-6, doi:10.1038/s42256-023-00767-6.">PAP+23</a>]</span></p>
+</section>
+<section id="notations">
+<h2>Notations:<a class="headerlink" href="#notations" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(i_k\)</span> runs from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(N_k\)</span> (<span class="math notranslate nohighlight">\(k=0,1\)</span>). <span class="math notranslate nohighlight">\(N_0\)</span> is the dimension of the input space while <span class="math notranslate nohighlight">\(N_1\)</span> the width of the hidden layer.</p></li>
+<li><p>Greek indexes <span class="math notranslate nohighlight">\(\mu, \nu\)</span> from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(P\)</span>, where <span class="math notranslate nohighlight">\(P\)</span> is the size of the dataset.</p></li>
+<li><p>Einstein summation convention is assumed on the <span class="math notranslate nohighlight">\(i_k\)</span> unless otherwise specified, but not on <span class="math notranslate nohighlight">\(\mu,\nu\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Dv = \prod_{i_1} dv_{i_1}, \quad Dw = \prod_{i_0i_1} dw_{i_1i_0}, \quad Dh^\mu = \prod_{i_1} dh_{i_1}^\mu\)</span>.</p></li>
+</ul>
+<p>The output of the NN is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+f_\theta(x^\mu) = \frac{1}{\sqrt{N_1}} v_{i_1} \sigma \left( \frac{1}{\sqrt{N_0}} w_{i_1i_0}x_{i_0}^\mu \right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the activation function.</p>
+<p>The loss function is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\beta \mathcal{L} = \frac{\beta}{2}\sum_\mu (y^\mu - f_\theta(x^\mu))^2 + \frac{\lambda_1}{2}v_{i_1}v_{i_1} +\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0}.
+\]</div>
+</section>
+<section id="full-calculation">
+<h2>Full calculation:<a class="headerlink" href="#full-calculation" title="Link to this heading">#</a></h2>
+<p>As a first step, to decouple the nested integrals over the weigths, let us introduce delta functions over the preactivations and the output values, as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Z} &amp;= \int DvDw \exp \left\{ -\frac{\beta}{2}\sum_\mu (y^\mu - f_\theta(x^\mu))^2 - \frac{\lambda_1}{2}v_{i_1}v_{i_1} -\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0} \right\} \\
+% ------------------------------------------------------------------------------------
+&amp;= \int DvDw \left(\prod_\mu ds^\mu Dh^\mu\right)  \exp \left\{ -\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 - \frac{\lambda_1}{2}v_{i_1}v_{i_1} -\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0} \right\} \times \\
+&amp; \qquad \times \prod_\mu \delta \left( s^\mu - \frac{v_{i_1}\sigma(h_{i_1}^\mu)}{\sqrt{N_1}} \right) \prod_{\mu,i_1} \delta \left( h_{i_1}^\mu - \frac{w_{i_1i_0}x_{i_0}^\mu}{\sqrt{N_0}} \right).
+\end{split}\]</div>
+<p>Now insert the integral representation of the Dirac deltas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+&amp;= \int DvDw \left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \frac{Dh^\mu D\bar{h}^\mu}{(2\pi)^{N_1}}\right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 - \frac{\lambda_1}{2}v_{i_1}v_{i_1} -\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0}\right] \times \\
+&amp; \qquad \times \exp\left(i\sum_\mu s^\mu \bar{s}^\mu -i \frac{v_{i_1}}{\sqrt{N_1}}\sum_\mu \bar{s}^\mu \sigma(h_{i_1}^\mu)\right) \exp\left(i\sum_\mu h_{i_1}^\mu \bar{h}_{i_1}^\mu -i \frac{w_{i_1i_0}}{\sqrt{N_0}}\sum_\mu \bar{h}_{i_1}^\mu x_{i_0}^\mu\right).
+\end{split}\]</div>
+<section id="integrals-over-the-weigths">
+<h3>Integrals over the weigths<a class="headerlink" href="#integrals-over-the-weigths" title="Link to this heading">#</a></h3>
+<p>Now the integrals over the weigths can be isolated. Let us calculate them separately.</p>
+<ul class="simple">
+<li><p>Integral over the <span class="math notranslate nohighlight">\(v\)</span> variables:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+&amp;\int Dv ~ \exp \left[-\frac{\lambda_1}{2}v_{i_1}v_{i_1}\right] \exp \left[-i\frac{v_{i_1}}{\sqrt{N_1}}\sum_\mu \bar{s}^\mu \sigma(h_{i_1}^\mu) \right] = \\
+=&amp; \prod_{i_1} \int dv_{i_1} ~ \exp \left[-\frac{\lambda_1}{2}v_{i_1}^2\right] \exp \left[-i\frac{v_{i_1}}{\sqrt{N_1}}\sum_\mu \bar{s}^\mu \sigma(h_{i_1}^\mu) \right] &amp; \qquad \text{(no sum)} \\
+=&amp; \left( \frac{2\pi}{\lambda_1} \right)^{N_1/2} \exp \left[ -\frac{1}{2\lambda_1 N_1}\sum_{\mu\nu}\bar{s}^\mu \bar{s}^\nu \sigma(h_{i_1}^\mu)\sigma(h_{i_1}^\nu) \right]
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Integral over the <span class="math notranslate nohighlight">\(w\)</span> variables:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+&amp;\int Dw ~ \exp \left[-\frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0}\right] \exp \left[-i\frac{w_{i_1i_0}}{\sqrt{N_0}}\sum_\mu \bar{h}_{i_1}^\mu x_{i_0}^\mu \right] = \\
+=&amp; \prod_{i_0i_1} \int dw_{i_1i_0} ~ \exp \left[-\frac{\lambda_0}{2}w_{i_1i_0}^2\right] \exp \left[-i\frac{w_{i_1i_0}}{\sqrt{N_0}}\sum_\mu \bar{h}_{i_1}^\mu x_{i_0}^\mu \right] &amp; \qquad \text{(no sum)} \\
+=&amp; \left( \frac{2\pi}{\lambda_0} \right)^{N_0N_1/2} \exp \left[ -\frac{1}{2\lambda_0 N_0}\sum_{\mu\nu}\bar{h}_{i_1}^\mu \bar{h}_{i_1}^\nu x_{i_0}^\mu x_{i_0}^\nu \right]
+\end{split}\]</div>
+<p>Define <span class="math notranslate nohighlight">\(A:=(2\pi/\lambda_1)^{N_1/2} (2\pi/\lambda_0)^{N_0N_1/2}\)</span>. The partition function is then:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Z} &amp;= A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \frac{Dh^\mu D\bar{h}^\mu}{(2\pi)^{N_1}}\right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu (s^\mu \bar{s}^\mu + h_{i_1}^\mu \bar{h}_{i_1}^\mu)  \right] \times \\
+&amp; \qquad \times \exp \left[ -\frac{1}{2\lambda_1 N_1}\sum_{\mu\nu}\bar{s}^\mu \bar{s}^\nu \sigma(h_{i_1}^\mu)\sigma(h_{i_1}^\nu) -\frac{1}{2\lambda_0 N_0}\sum_{\mu\nu}\bar{h}_{i_1}^\mu \bar{h}_{i_1}^\nu x_{i_0}^\mu x_{i_0}^\nu \right]
+\end{split}\]</div>
+<p>Notice that the integrals over the <span class="math notranslate nohighlight">\(h\)</span> variables are all equals, so:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Z} &amp;= A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] \times \\
+&amp; \qquad \times \left[ \int \left(\prod_\mu \frac{dh^\mu d\bar{h}^\mu}{2\pi}\right) \exp \left( i\sum_\mu h^\mu \bar{h}^\mu -\frac{1}{2\lambda_1 N_1}\sum_{\mu\nu}\bar{s}^\mu \bar{s}^\nu \sigma(h_{i_1}^\mu)\sigma(h_{i_1}^\nu) -\frac{1}{2\lambda_0 N_0}\sum_{\mu\nu}\bar{h}_{i_1}^\mu \bar{h}_{i_1}^\nu x_{i_0}^\mu x_{i_0}^\nu \right) \right]^{N_1}
+\end{split}\]</div>
+</section>
+<section id="gram-matrix">
+<h3>Gram matrix<a class="headerlink" href="#gram-matrix" title="Link to this heading">#</a></h3>
+<p>Let us introduce the <span class="math notranslate nohighlight">\(P \times P\)</span> matrix with elements (remember the sum over <span class="math notranslate nohighlight">\(i_0\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+C_{\mu\nu} := \frac{1}{\lambda_0N_0} x_{i_0}^\mu x_{i_0}^\nu \propto \boldsymbol{x}^\mu \cdot \boldsymbol{x}^\nu =: (X^t X)_{\mu\nu}.
+\]</div>
+<p>In the last expression I introduced the so called Gram matrix <span class="math notranslate nohighlight">\(X^tX\)</span> , defined in terms of the <span class="math notranslate nohighlight">\(N_0 \times P\)</span> matrix <span class="math notranslate nohighlight">\(X=(\boldsymbol{x}^1, \dots \boldsymbol{x}^P)\)</span>.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(P&gt;N_0\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+rank(X^tX) \le \min \{rank(X^t),rank(X) \} = rank(X) \le N_0 &lt; P
+\]</div>
+<p>So <span class="math notranslate nohighlight">\(C\)</span> cannot have maximum rank and therefore it is not invertible (intuitively, there are more vectors than dimensons, they cannot be linearly independent).</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(P \le N_0\)</span>:</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(C\)</span> is invertible if and only if the data are linearly independent.</p>
+<p>In any case, when <span class="math notranslate nohighlight">\(C\)</span> is not invertible, it is always possible to calculate <span class="math notranslate nohighlight">\((C+\varepsilon \mathbb{1})^{-1}\)</span> for some small <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> and check that the final results are independent from <span class="math notranslate nohighlight">\(\varepsilon\)</span> (as long as we choose it to be small enough).</p>
+</section>
+<section id="going-back-to-the-partition-function">
+<h3>Going back to the partition function<a class="headerlink" href="#going-back-to-the-partition-function" title="Link to this heading">#</a></h3>
+<p>Let us calculate the integral in the <span class="math notranslate nohighlight">\(\bar{h}\)</span> variables:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+&amp;\int \left( \prod_\mu \frac{d\bar{h}^\mu}{2\pi} \right) \exp \left(i\sum_\mu h^\mu \bar{h}^\mu \right) \exp \left(-\frac{1}{2}\sum_{\mu\nu}\bar{h}^\mu C_{\mu\nu}\bar{h}^\nu \right) \\
+&amp;=[(2\pi)^P \det C]^{-1/2} \exp \left(-\frac{1}{2}\sum_{\mu\nu} h^\mu C_{\mu\nu}^{-1} h^\nu \right) \\
+&amp;=: P(\{ h^\mu \}) \qquad \qquad \text{(a normalized gaussian)}
+\end{split}\]</div>
+<p>So the partition function is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Z} &amp;= A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] \times \\
+&amp; \qquad \times \left[ \int \left(\prod_\mu dh^\mu \right) \exp \left(-\frac{1}{2\lambda_1 N_1}\sum_{\mu\nu}\bar{s}^\mu \bar{s}^\nu \sigma(h_{i_1}^\mu)\sigma(h_{i_1}^\nu) \right) P(\{ h^\mu \}) \right]^{N_1}
+\end{split}\]</div>
+<p>Let us introduce a new variable <span class="math notranslate nohighlight">\(q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{Z} &amp;= A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] \times \\
+&amp; \qquad \times \left[ \int \left(\prod_\mu dh^\mu \right) dq ~ e^{-q^2/2} P(\{ h^\mu \}) \delta \left( q - \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu \sigma(h^\mu) \right) \right]^{N_1}
+\end{split}\]</div>
+<p>The integral over the <span class="math notranslate nohighlight">\(h^\mu\)</span> variables gives, by definition, the probability density <span class="math notranslate nohighlight">\(P(q)\)</span>.</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Formula</p>
+<p>The following property is a consequence of the change of variables theorem for random variables:</p>
+<div class="math notranslate nohighlight">
+\[
+X \sim p_X \qquad Y=f(X) \qquad \Longrightarrow \qquad Y \sim p_Y
+\]</div>
+<p>Where:</p>
+<div class="math notranslate nohighlight">
+\[
+    p_Y(y) = \int dx ~ p_X(x) \delta(y-f(x)).
+\]</div>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{Z} = A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] \times \left[ \int dq ~ e^{-q^2/2} P(q) \right]^{N_1}
+\]</div>
+</section>
+<section id="distribution-of-q">
+<h3>Distribution of <span class="math notranslate nohighlight">\(q\)</span><a class="headerlink" href="#distribution-of-q" title="Link to this heading">#</a></h3>
+<p>Recall that the variable <span class="math notranslate nohighlight">\(q\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+q = \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu \sigma(h^\mu).
+\]</div>
+<p>Its mean value is:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[q] = \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu \mathbb{E}[\sigma(h^\mu)].
+\]</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The last passage is valid only because the <span class="math notranslate nohighlight">\(\bar{s}\)</span> variable has to be integrated after, this expression is inside the integrals in <span class="math notranslate nohighlight">\(d\bar{s}\)</span>.
+Otherwise, the <span class="math notranslate nohighlight">\(s\)</span> variables themselfes would depend on the <span class="math notranslate nohighlight">\(h\)</span> variables, and the calculation would not be valid.</p>
+</div>
+<section id="zero-mean-activation-functions">
+<h4>Zero-mean activation functions<a class="headerlink" href="#zero-mean-activation-functions" title="Link to this heading">#</a></h4>
+<p>We assume to work with zero-mean activation functions, that are activation functions whose mean according to a centered gaussian distribution is zero.
+Note that ReLU is not in this class.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mathbb{E}[\sigma(h^\mu)] &amp;= \int \left( \prod_\mu dh^\mu \right) P(\{ h^\mu \}) \sigma(h^\mu) = 0 &amp; \Longrightarrow &amp; &amp;\mathbb{E}[q]=0.
+\end{align*}\]</div>
+<hr class="docutils" />
+<p>Now calculate the variance:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{E}[q^2] &amp;= \frac{1}{\lambda_1N_1} \sum_{\mu\nu}\bar{s}^\mu \bar{s}^\nu \mathbb{E}[\sigma(h^\mu)\sigma(h^\nu)] \\
+&amp;\equiv \frac{1}{\lambda_1N_1} \sum_{\mu\nu}\bar{s}^\mu K_{\mu\nu} \bar{s}^\nu =: Q(\bar{s}, C),
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(K\)</span> is the NNGP kernel! It can be reduced from a <span class="math notranslate nohighlight">\(P\)</span>-dimensional to a two-dimensional integral. See the page <a class="reference internal" href="nngp.html"><span class="doc">Neural Networks and Gaussian Processes correspondence</span></a>.</p>
+</section>
+<section id="breuer-major-theorem">
+<h4>Breuer-Major theorem<a class="headerlink" href="#breuer-major-theorem" title="Link to this heading">#</a></h4>
+<p>Assuming that the BM theorem holds:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+q &amp;\to \mathcal{N}(0, Q(\bar{s}, C)) &amp; &amp;\text{for } P,N_1 \to \infty, P/N_1=\alpha_1.
+\end{align*}\]</div>
+<p>Note that the proportional limit is the appropriate limit to invoke the BM theorem, as the sum is among <span class="math notranslate nohighlight">\(P\)</span> terms but the prefactor is <span class="math notranslate nohighlight">\(1/\sqrt{N_1}\)</span>.</p>
+<p>So, in this limit, we can perform the integral in <span class="math notranslate nohighlight">\(q\)</span> and the result is:</p>
+<div class="math notranslate nohighlight">
+\[
+\int dq ~ P(q) e^{-q^2/2} = (1+Q(\bar{s}, C))^{-1/2}.
+\]</div>
+<p>In particular we need <span class="math notranslate nohighlight">\(Q \ge -1\)</span> (always satistied as it is a variance).</p>
+</section>
+</section>
+<section id="continuing-the-calculation">
+<h3>Continuing the calculation<a class="headerlink" href="#continuing-the-calculation" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{Z} = A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] (1+Q(\bar{s}, C))^{-N_1/2}.
+\]</div>
+<p>Introduce a Dirac delta over the function <span class="math notranslate nohighlight">\(Q(\bar{s}, C)\)</span> and also its integral representation:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mathcal{Z} &amp;= A \int \frac{dQd\bar{Q}}{2\pi} e^{iQ\bar{Q}} (1+Q)^{-N_1/2} \times \\
+&amp;\qquad \times \int \left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu -i\bar{Q} \frac{1}{\lambda_1N_1} \sum_{\mu\nu}\bar{s}^\mu K_{\mu\nu} \bar{s}^\nu \right].
+\end{align*}\]</div>
+<p>Let’s focus on the integral over the <span class="math notranslate nohighlight">\(s\)</span> variables, which is the inverse Fourier transform of a gaussian:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\int &amp;\left(\prod_\mu ds^\mu \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] = \\
+=&amp; e^{i\sum_\mu \bar{s}^\mu y^\mu} \left( \frac{2\pi}{\beta} \right)^{P/2} \exp \left[ -\frac{1}{2\beta} \sum_\mu \bar{s}^{\mu^2} \right].
+\end{align*}\]</div>
+<p>Now the integral over the <span class="math notranslate nohighlight">\(\bar{s}\)</span> becomes:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\int &amp;\left(\prod_\mu \frac{d\bar{s}^\mu}{2\pi} \right) \exp \left[i\sum_\mu \bar{s}^\mu y^\mu -\frac{1}{2\beta} \sum_\mu \bar{s}^{\mu^2} -i\bar{Q} \frac{1}{\lambda_1N_1} \sum_{\mu\nu}\bar{s}^\mu K_{\mu\nu} \bar{s}^\nu \right] \\
+=&amp; \int \left(\prod_\mu \frac{d\bar{s}^\mu}{2\pi} \right) \exp \left[i\sum_\mu \bar{s}^\mu y^\mu -\frac{1}{2} \sum_{\mu\nu} \bar{s}^{\mu} \left( \frac{2i\bar{Q}}{\lambda_1N_1}K_{\mu\nu} + \frac{1}{\beta}\delta_{\mu\nu} \right) \bar{s}^\nu \right] \\
+=&amp; \left[ (2\pi)^P \det \left( \frac{2i\bar{Q}}{\lambda_1N_1}K + \frac{1}{\beta}\mathbb{1} \right) \right]^{-1/2} \exp \left[ -\frac{1}{2}\sum_{\mu\nu} y^\mu \left( \frac{2i\bar{Q}}{\lambda_1N_1}K + \frac{1}{\beta}\mathbb{1} \right)^{-1} y^\nu \right].
+\end{align*}\]</div>
+<p>The last passage was done recognizing that the integral is again the inverse Fourier transform of a gaussian.</p>
+<p>So we have:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mathcal{Z} &amp;= A  \left( \frac{\cancel{2\pi}}{\beta} \right)^{P/2} (\cancel{2\pi})^{-P/2} \int \frac{dQd\bar{Q}}{2\pi} e^{iQ\bar{Q}} (1+Q)^{-N_1/2} \times \\
+&amp;\qquad \times \left[ \det \left( \frac{2i\bar{Q}}{\lambda_1N_1}K + \frac{1}{\beta}\mathbb{1} \right) \right]^{-1/2} \exp \left[ -\frac{1}{2}\sum_{\mu\nu} y^\mu \left( \frac{2i\bar{Q}}{\lambda_1N_1}K + \frac{1}{\beta}\mathbb{1} \right)^{-1} y^\nu \right].
+\end{align*}\]</div>
+<p>Now change variable <span class="math notranslate nohighlight">\(\bar{Q} \to -iN_1\bar{Q}/2\)</span>. This makes the integral complex, and <span class="math notranslate nohighlight">\(\bar{Q}\)</span> now runs from <span class="math notranslate nohighlight">\(-i\infty\)</span> to <span class="math notranslate nohighlight">\(i\infty\)</span>. However, as the integrand is holomorphic, the same result is obtained deforming the integration path back to a real one.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mathcal{Z} &amp;= \frac{A}{2\pi} (\beta)^{-P/2} \frac{N_1}{2} \int dQd\bar{Q} e^{\frac{N_1}{2}Q\bar{Q}} (1+Q)^{-N_1/2} ( \det \tilde{K} )^{-1/2} \exp \left( -\frac{1}{2}\sum_{\mu\nu} y^\mu \tilde{K}^{-1} y^\nu \right).
+\end{align*}\]</div>
+<p>Where we have defined:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{K} := \frac{\bar{Q}}{\lambda_1}K + \frac{1}{\beta}\mathbb{1}
+\]</div>
+<p>Rearranging (remember that <span class="math notranslate nohighlight">\(\alpha_1=P/N_1\)</span>):</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Formula</p>
+<p>Determinant of a matrix:</p>
+<div class="math notranslate nohighlight">
+\[
+\log \det M = \text{Tr} \log M,
+\]</div>
+<p>and:</p>
+<div class="math notranslate nohighlight">
+\[
+    \text{Tr} \log (AB) = \text{Tr} \log A + \text{Tr} \log B.
+\]</div>
+</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\mathcal{Z} &amp;= \frac{A}{2\pi} \frac{N_1}{2} \int dQd\bar{Q} \exp \left( -\frac{N_1}{2} S[Q,\bar{Q}] \right)
+\end{align*}\]</div>
+<p>where the action <span class="math notranslate nohighlight">\(S[Q,\bar{Q}]\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+S[Q,\bar{Q}] = -Q\bar{Q} + \log(1+Q) + \frac{\alpha_1}{P} \text{Tr} \log(\beta\tilde{K}) + \frac{\alpha_1}{P} \boldsymbol{y}^t \cdot \tilde{K} \cdot \boldsymbol{y} 
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>The factor <span class="math notranslate nohighlight">\(A\)</span> contains the normalization factors for the prior distribution. However, it should not be present (it can be eliminated using the proper integration measure for the weigths, i.e. including them in the partition function definition?).</p></li>
+<li><p>Neither the factor <span class="math notranslate nohighlight">\(N_1/4\pi\)</span> should be present (potentially, I do not care about additional constants in <span class="math notranslate nohighlight">\(\log \mathcal{Z}\)</span>, the only issue is that <span class="math notranslate nohighlight">\(N_1 \to \infty\)</span>).</p></li>
+</ul>
+</div>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bnn.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bayesian Neural Networks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="relu.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Extention for non-zero mean activation functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notations">Notations:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-calculation">Full calculation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integrals-over-the-weigths">Integrals over the weigths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gram-matrix">Gram matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#going-back-to-the-partition-function">Going back to the partition function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-q">Distribution of <span class="math notranslate nohighlight">\(q\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-mean-activation-functions">Zero-mean activation functions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#breuer-major-theorem">Breuer-Major theorem</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-the-calculation">Continuing the calculation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vincenzo Zimbardo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
