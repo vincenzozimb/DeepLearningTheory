@@ -33,6 +33,10 @@ Consider the multi-output (general) case. The NN output function $f(x)$ ($x \in 
 
 In the last expression, $\sigma:\mathbb{R} \to \mathbb{R}$ is a generic (usually non-linear) activation function. The infinite width limit is defined as $N_1 \to \infty$.
 
+```{danger}
+I did the calculations, but content is still to write!
+```
+
 
 
 

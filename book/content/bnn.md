@@ -16,10 +16,10 @@ by a parameter that we call "temperature", as usualy done in statistical mechani
 The distribution over the inputs $x$ is not being modelled, so, from a bayesian point of view, $x$ can be formally be regarder as a hyperparameter.
 
 Suppose to have a (training) dataset {math}`\mathcal{D}=\{ x_i, y_i \}_{i=1}^n`. In BNN (bayesian NN), the objective is to find the posterior predictive
-distribution of $y_0 | x_0 \mathcal{D}$, where $x_0$ is a new (unseen) test data. This distribution is given by:
+distribution of $y_0 | x_0, \mathcal{D}$, where $x_0$ is a new (unseen) test data. This distribution is given by:
 
 $$
-p(y_0 | x_0 \mathcal{D}) &= \int d\theta ~ p(y_0, \theta| x_0 \mathcal{D}) \\
+p(y_0 | x_0, \mathcal{D}) &= \int d\theta ~ p(y_0, \theta| x_0, \mathcal{D}) \\
                          &= \int d\theta ~ p(y_0 | x_0, \theta, \cancel{\mathcal{D}}) p(\theta | \cancel{x_0}, \mathcal{D})
 $$
 
@@ -81,9 +81,6 @@ implies that:
 
 - $\beta \to \infty$ $(T \to 0)$ : enforce error minimization (i.e. stay at the bottom of the "energy" landscape)
 - $\beta \to 0$ $(T \to \infty)$ : ignore the landscape, allow fluctuations around the minima. The only constraints are given by the regularization.
-
-To be precise, in the latter conditions, the magnitute of $\beta$ should be compared to the magnitude of the regularization parameters $\lambda$, 
-which behaves as a sort of "constraints". 
 
 ```
 

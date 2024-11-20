@@ -1,11 +1,45 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
+# Table of contents. Documentation at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: welcome
-chapters:
-- file: Misc/formulae
-- file: Theory/nngp
-- file: Theory/bnn
-- file: Theory/pf
+root: content/welcome
+parts:
 
+####################
+# MISCELLANEOUS
+- caption: Miscellaneous
+  numbered: false
+  chapters:
+  - file: content/formulae
+
+####################
+# DL theory
+- caption: Deep Learning Theory
+  numbered: false
+  chapters:
+  - file: content/nngp
+  - file: content/bnn
+  - file: content/pf
+    sections:
+    - file: content/relu
+
+
+####################
+# test
+- caption: Testing layout
+  numbered: false
+  chapters:
+  - file: content/Test/test1
+  - file: content/Test/test2
+    sections:
+      - file: content/Test/test21
+        sections:
+        - file: content/Test/test211
+        - file: content/Test/test212
+      - file: content/Test/test22
+      - file: content/Test/test23
+  - file: content/Test/test3
+  - file: content/Test/test4
+  - file: content/Test/test5
+    sections:
+    - file: content/Test/test51
+    - file: content/Test/test52

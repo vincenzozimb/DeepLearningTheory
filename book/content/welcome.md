@@ -10,12 +10,10 @@ The source code can be found in my GitHub profile at [this link](https://github.
 This is a work in progress!
 ```
 
-```{image} Calculation.jpg
+```{image} ../images/Calculation.jpg
 :width: 300px
 :align: center
-
-
-
+```
 
 ## Table of contents:
 

@@ -1,41 +1,133 @@
+###############################################################################
 # Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
-
 title: Deep Learning Theory
 author: Vincenzo Zimbardo
-logo: logo.png
+logo: images/logo.png
+description: Notes and calculations from the PhD in Physics at UniPR
+copyright: "2024"  # Copyright year to be placed in the footer
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+
+###############################################################################
+# Exclude settings (to exclude some files)
+# exclude_patterns: [] #(add what needed)
+
+
+###############################################################################
+# Execution settings (see documentation for all keys)
 execute:
-  execute_notebooks: force
+  execute_notebooks : off  #(force re-execution of notebooks on each build)
 
-# Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: book.tex
 
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
+###############################################################################
+# TOC settings
+only_build_toc_files : true
+number_toc_chapters  : true
 
+
+###############################################################################
+# Parse and render settings
+parse:
+  
+  # myst_substitutions:
+  #   sub3: My _global_ value! #(try it!)
+
+  myst_enable_extensions:  # See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    
+    - dollarmath # for parsing of dollar $ and $$ encapsulated math.
+    - amsmath # for direct parsing of amsmath LaTeX environments
+    - smartquotes # automatically convert standard quotations to their opening/closing variants
+    - linkify # automatically identify “bare” web URLs and add hyperlinks
+    - substitution # allow you to add substitutions, added in either the conf.py using myst_substitutions or at the top of the file, in the front-matter section (see documentation)
+    - colon_fence # allow you to also use ::: delimiters to denote directives, instead of ```
+    - tasklist #  allow you to utilise task lists. Begin with [ ] or [x]
+    # - replacements # automatically convert some common typographic texts (not so useful for me)
+    # - deflist # you will be able to utilise definition lists (not so useful for me)
+    # - html_image # advanced images option, no need of this
+    # - html_admonition # same of html_image, but for admonitions
+  
+  myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
+  myst_dmath_double_inline: true  # Allow display math ($$) within an inline context
+
+
+###############################################################################
+# HTML-specific settings. See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  favicon                   : ""  # A path to a favicon image
+  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_repository_button     : false  # Whether to add a link to your repository button
+  use_issues_button         : false  # Whether to add an "open an issue" button
+  use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
+  extra_footer              : ""  # Will be displayed underneath the footer.
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links.
+  analytics:
+    plausible_analytics_domain: ""
+    plausible_analytics_url: "https://plausible.io/js/script.js"
+    google_analytics_id       : ""  # A GA id that can be used to track book views.
+
+  comments:
+    hypothesis              : false
+    utterances              : false
+  announcement              : "" # A banner announcement at the top of the site.
+
+
+###############################################################################
+# Launch button settings. Default interface that will open when users interact with live code or notebooks within the book
+launch_buttons:
+  notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : ""  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+  colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
+  deepnote_url              : "" # The URL of Deepnote (https://deepnote.com)
+
+
+###############################################################################
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
+  url: https://github.com/vincenzozimb/DeepLearningTheory.git   # Online location of your book repository
+  path_to_book: book  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-html:
-  use_issues_button: true
-  use_repository_button: true
 
-# ---------------------------------------------------------------------------------
-# Other settings
+###############################################################################
+# LaTeX-specific settings
+latex:
+  latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+  use_jupyterbook_latex     : true # use sphinx-jupyterbook-latex for pdf builds as default
+  latex_documents:
+    targetname: book.tex # define the name of the latex output file for PDF builds
 
-# this should improve loading speed when there is a lot of math  
+# BibTeX settings
+bibtex_reference_style : author_year
+bibtex_bibfiles        :
+    - content/references.bib # add a bibtex file so that we can create citations
+
+
+###############################################################################
+# Sphinx settings. Advanced and power-user settings
 sphinx:
-  config:
-    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
+  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
+  recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
+  config                    :   # key-value pairs to directly over-ride the Sphinx configuration
 
+
+# # Sphinx settings
+# sphinx:
+#   config:
+#     html_show_copyright : false
+#     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js # this should improve loading speed when there is a lot of math
+#     mathjax3_config     :
+#       tex:
+#         macros:
+#           # "vv": "\\vec{v}"
+#           # "vu": "\\vec{u}"
+#           # "mf": "\\small\\sf"
+#           # "dQ": "\\dot{Q}"
+#           # "dq": "\\dot{q}"
+#           # "dm": "\\dot{m}"
+#           # "du": "\\dot{u}"
+
+
+###############################################################################
