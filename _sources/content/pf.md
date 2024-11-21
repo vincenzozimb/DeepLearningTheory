@@ -286,7 +286,7 @@ $$
 where the action $S[Q,\bar{Q}]$ is given by:
 
 $$
-S[Q,\bar{Q}] = -Q\bar{Q} + \log(1+Q) + \frac{\alpha_1}{P} \text{Tr} \log(\beta\tilde{K}) + \frac{\alpha_1}{P} \boldsymbol{y}^t \cdot \tilde{K} \cdot \boldsymbol{y} 
+S[Q,\bar{Q}] = -Q\bar{Q} + \log(1+Q) + \frac{\alpha_1}{P} \text{Tr} \log(\beta\tilde{K}) + \frac{\alpha_1}{P} \boldsymbol{y}^t \cdot \tilde{K}^{-1} \cdot \boldsymbol{y} 
 $$
 
 ```{warning}
