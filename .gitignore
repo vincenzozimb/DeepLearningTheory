@@ -162,5 +162,10 @@ cython_debug/
 #.idea/
 
 
+######################################################
+# Others
+
+book/tempCodeRunnerFile.yml
+
 # jupyter-book build folder
-_build/ 
+_build/

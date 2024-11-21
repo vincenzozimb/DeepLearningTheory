@@ -11,6 +11,7 @@ parts:
   chapters:
   - file: content/formulae
 
+
 ####################
 # DL theory
 - caption: Deep Learning Theory
@@ -22,6 +23,12 @@ parts:
     sections:
     - file: content/relu
 
+####################
+# COURSE NOTES
+- caption: Course Notes
+  numbered: false
+  chapters:
+  - file: content/course
 
 ####################
 # test
