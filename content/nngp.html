@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=550fd47b" />
@@ -201,6 +201,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing layout</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="instructions.html">Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Test/test1.html">Test 1</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Test/test2.html">Test 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="Test/test21.html">Test 2.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -369,6 +370,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-for-1-hl-nn-neals-result">Calculation for 1 HL NN (Neal’s result)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-to-deep-neural-networks">Extension to Deep Neural Networks</a></li>
 </ul>
             </nav>
         </div>
@@ -394,9 +396,15 @@ given with components:</p>
 \[
 \mu_i = \mu(x_i), \qquad K_{ij} = K(x_i, x_j).
 \]</div>
+<p><strong>A mathematical detail</strong>:</p>
+<p>We also require for the finite collections of rvs to satisfy the natural <em>marginalization property</em>,
+that is, given any subset of a given (finite) collection of rvs, the covariance matrix calculated with
+the definition has to coincide with the relevant sub-matrix of the full covariance matrix.
+If this condition is satisfied, then the <strong>Kolmogorov extention theorem</strong> guarantees the existence of
+the stochastic process.</p>
 </div>
 <p>Neal in the ‘90 <span id="id1">[<a class="reference internal" href="welcome.html#id3" title="Radford M. Neal. Bayesian Learning for Neural Networks. Volume 118 of Lecture Notes in Statistics. Springer, 1996. doi:10.1007/978-1-4612-0745-0.">Nea96</a>]</span> discovered an equivalence between GPs and 1 HL (Hidden Layer) FC (Fully Connected) NNs (Neural Network) in the so called infinite-width limit (number of neurons in the layer that goes to infinity) and he also suggested that a similar correspondence might hold for DNNs (Deep NN), fact that was indeed proved to be true, see for example <span id="id2">[<a class="reference internal" href="welcome.html#id4" title="Jaehoon Lee, Yasaman Bahri, Roman Novak, Samuel S Schoenholz, Jeffrey Pennington, and Jascha Sohl-Dickstein. Deep neural networks as gaussian processes. arXiv preprint arXiv:1711.00165, 2017.">LBN+17</a>]</span>. In order to this correspondence to hold, it is necessary to choose particular prior over the parameters.</p>
-<div class="important admonition">
+<div class="note admonition">
 <p class="admonition-title">Consequence</p>
 <p>Infinite-wide NN with gaussian iid prior over parameters <span class="math notranslate nohighlight">\(\iff\)</span> GP prior over functions</p>
 </div>
@@ -408,10 +416,114 @@ given with components:</p>
 \[\begin{split}    h_i(x) &amp;= \sum_{j=1}^{N_0} w^{(1)}_{ij} x_j + b^{(1)}_i, &amp; \quad \forall i=1,\dots,N_1, \\
     f_i(x) &amp;= \sum_{j=1}^{N_1} w^{(2)}_{ij} \sigma(h_j(x)) + b^{(2)}_i, &amp; \quad \forall i=1,\dots,N_2.\end{split}\]</div>
 <p>In the last expression, <span class="math notranslate nohighlight">\(\sigma:\mathbb{R} \to \mathbb{R}\)</span> is a generic (usually non-linear) activation function. The infinite width limit is defined as <span class="math notranslate nohighlight">\(N_1 \to \infty\)</span>.</p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>I did the calculations, but content is still to write!</p>
+<p>Choose IID gaussian priors over the parameters, as follows:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+w_{ij}^{(l)} &amp;\sim \mathcal{N}(0, \sigma_w^2/N_{l-1}), &amp; b_i^{(l)} &amp;\sim \mathcal{N}(0, \sigma_b^2), &amp; l&amp;=1,2.
+\end{align*}\]</div>
+<p>As parameters are rvs and data (inputs) are fixed, it follows that the pre-activations <span class="math notranslate nohighlight">\(h\)</span> and the output values <span class="math notranslate nohighlight">\(f\)</span> are also rvs.</p>
+<p>The pre-activations are independent and normally distributed:</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Formula</p>
+<p>Sum of gaussian rvs is a gaussian rv:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{i=1}^{n}\mathcal{N}(\mu_i, \sigma_i^2) = \mathcal{N}\left(\sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2\right) 
+\]</div>
 </div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+h_1,\dots,h_{N_1} &amp;\mathop{\sim}^{IID} \mathcal{N}\left( 0, \frac{\sigma_w^2}{N_0} \sum_j^{N_0} x_j^2 + \sigma_b^2 \right)
+\end{align*}\]</div>
+<p>In particular, the pre-activations are independent rvs.</p>
+<p>It follows that also the post-activations <span class="math notranslate nohighlight">\(\sigma_i \equiv \sigma(h_i)\)</span> are IID rvs.</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Mathematical fact</p>
+<p>Functions of independent rvs are independent rvs.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    X_i &amp;\sim p_{X_i} &amp; Y_i &amp;:= f_i(X_i) 
+\end{align*}\]</div>
+<p><em>proof:</em></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    p_{Y_1Y_2}(y_1,y_2) &amp;= \int dx_1dx_2 ~ \underbrace{p_{X_1X_2}(x_1,x_2)}_{p_{X_1}(x_1)p_{X_2}(x_2)} \delta(y_1-f_1(x_1)) \delta(y_2-f_2(x_2)) \\
+    &amp;= \left[\int dx_1 ~ p_{X_1}(x_1) \delta(y_1-f_1(x_1)) \right] \left[ \int dx_2 ~ p_{X_2}(x_2) \delta(y_2-f_2(x_2)) \right] \\
+    &amp;= p_{Y_1}(y_1) p_{Y_2}(y_2). &amp; \square
+\end{align*}\]</div>
+</div>
+<p>The same is true also for all the product terms <span class="math notranslate nohighlight">\(w^{(2)}\sigma\)</span>, that are themselves IID, as product of IID terms (although their probability distribution can be rather complex).</p>
+<p>In the limit <span class="math notranslate nohighlight">\(N_1 \to \infty\)</span>, the CLT (Central Limit Theorem) ensures that the sum <span class="math notranslate nohighlight">\(\sum_{j}^{N_1} w_{ij}^{(2)}\sigma_j\)</span> is asymptotically normal. The same holds also when the contribution from the biases <span class="math notranslate nohighlight">\(b^{(2)}\)</span> is taken into account (as again, sum of normal rvs is a normal rv). Likewise, for any finite set of inputs, the sets of the outputs (for each component) of a NN in the infinite width limit will also be normally distributed (multivariate CLT). This is exactly the definition of Gaussian Process.</p>
+<p>So it was proven that <span class="math notranslate nohighlight">\(f_i \sim \mathcal{GP}(\mu, K) ~ \forall i=1,\dots,N_2\)</span>. The parameters of the Gaussian process are all the same, and are calculated as follows.</p>
+<ul class="simple">
+<li><p>The mean function is:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mu(x) = \mathbb{E}[f_i(x)] = 0 \qquad \forall i.
+\]</div>
+<p>As each component <span class="math notranslate nohighlight">\(f_i\)</span> has zero mean, it follows from a simple calculation exploiting independence of the involved rvs.</p>
+<ul class="simple">
+<li><p>The kernel function is (again, <span class="math notranslate nohighlight">\(\forall i\)</span>):</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+K(x, x') &amp;= \mathbb{E}[f_i(x), f_j(x)] - \cancel{\mathbb{E}[f_i(x)]}\cancel{\mathbb{E}[f_i(x')]} \\
+&amp;= \mathbb{E}\left[ \sum_{jj'}^{N_1} w_{ij}^{(2)} w_{ij'}^{(2)} \sigma_j \sigma_{j'} + b_i^{(2)} \sum_{j'}^{N_1} w_{ij'}^{(2)}\sigma_{j'} + b_{i}^{(2)} \sum_{j}^{N_1} w_{ij}^{(2)}\sigma_{j} + b_i^{(2)2} \right] \\
+&amp;= \sum_{jj'}^{N_1} \delta_{jj'} \frac{\sigma_w^2}{N_1} C(x,x') + \sigma_b^2 \\
+&amp;= \sigma_w^2 C(x,x') + \sigma_b^2.
+\end{align*}\]</div>
+<p>The last passage is valid as the newly defined quantity (called the NNGP kernel):</p>
+<div class="math notranslate nohighlight">
+\[
+C(x,x') := \mathbb{E}[\sigma(h_j(x)) \sigma(h_j(x'))]
+\]</div>
+<p>does not depend on <span class="math notranslate nohighlight">\(j\)</span> (remember that the <span class="math notranslate nohighlight">\(h\)</span> are IID).</p>
+<p>This conclude the proof, as the statement <span class="math notranslate nohighlight">\(f\sim\mathcal{GP}\)</span> was proven.</p>
+<hr class="docutils" />
+<p>Note that:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+K^0(x, x') &amp;:= \mathbb{E}[h_i(x), h_j(x)] - \cancel{\mathbb{E}[h_i(x)]}\cancel{\mathbb{E}[h_i(x')]} \\
+&amp;= \sum_{jj'}^{N_0} \delta_{jj'} \frac{\sigma_w^2}{N_0} x_jx_{j'}' + \sigma_b^2 \\
+&amp;= \sum_{j}^{N_0} \frac{\sigma_w^2}{N_0} x_jx_j' + \sigma_b^2 \\
+&amp;= \sigma_w^2 \left( \frac{x \cdot x'}{N_0} \right) + \sigma_b^2.
+\end{align*}\]</div>
+<p>This is nothing but the covariance matrix of the <span class="math notranslate nohighlight">\(h\)</span> variables,
+when calculated at two different dataset points, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x'\)</span>. We can use this result to reduce the calculation of each element <span class="math notranslate nohighlight">\(C(x,x')\)</span> to a two-dimensonal integral, as follows:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+C(x,x') &amp;= \mathbb{E}[\sigma(u)\sigma(u')] &amp; &amp;\text{with } u,u'\sim \mathcal{N}(0,\Sigma)
+\end{align*}\]</div>
+<p>Where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Sigma = 
+\begin{pmatrix}
+K^0(x,x) &amp; K^0(x,x') \\
+K^0(x',x) &amp; K^0(x',x')
+\end{pmatrix}
+\end{split}\]</div>
+</section>
+<section id="extension-to-deep-neural-networks">
+<h2>Extension to Deep Neural Networks<a class="headerlink" href="#extension-to-deep-neural-networks" title="Link to this heading">#</a></h2>
+<p>The proof procedes by induction. The final kernel is calculated recursively using the kernel at the previous HL. The result is as expected (for a proof see for example <span id="id3">[<a class="reference internal" href="welcome.html#id4" title="Jaehoon Lee, Yasaman Bahri, Roman Novak, Samuel S Schoenholz, Jeffrey Pennington, and Jascha Sohl-Dickstein. Deep neural networks as gaussian processes. arXiv preprint arXiv:1711.00165, 2017.">LBN+17</a>]</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+K^0(x,x') &amp;= \sigma_b^2 + \sigma_w^2 \frac{x \cdot x'}{N_0} \\
+K^l(x,x') &amp;= \sigma_b^2 + \sigma_w^2 \mathbb{E}[\sigma(u)\sigma(u')] &amp; &amp;\text{with } u,u'\sim \mathcal{N}(0,\Sigma^l)
+\end{cases}
+\end{split}\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Sigma^l = 
+\begin{pmatrix}
+K^{l-1}(x,x) &amp; K^{l-1}(x,x') \\
+K^{l-1}(x',x) &amp; K^{l-1}(x',x')
+\end{pmatrix}
+\end{split}\]</div>
 </section>
 </section>
 
@@ -481,6 +593,7 @@ given with components:</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-for-1-hl-nn-neals-result">Calculation for 1 HL NN (Neal’s result)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-to-deep-neural-networks">Extension to Deep Neural Networks</a></li>
 </ul>
   </nav></div>
 
