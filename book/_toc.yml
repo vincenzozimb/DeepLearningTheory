@@ -35,6 +35,7 @@ parts:
 - caption: Testing layout
   numbered: false
   chapters:
+  - file: content/instructions
   - file: content/Test/test1
   - file: content/Test/test2
     sections:

@@ -189,7 +189,7 @@ $$
 &\equiv \frac{1}{\lambda_1N_1} \sum_{\mu\nu}\bar{s}^\mu K_{\mu\nu} \bar{s}^\nu =: Q(\bar{s}, C),
 $$
 
-where $K$ is the NNGP kernel! It can be reduced from a $P$-dimensional to a two-dimensional integral. See the page {doc}`nngp`.
+where $K$ is the NNGP kernel! (see the page {doc}`nngp`).
 
 
 #### Breuer-Major theorem
