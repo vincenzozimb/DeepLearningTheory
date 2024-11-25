@@ -2,6 +2,11 @@
 
 ## Introduction
 
+```{warning}
+This content is temporary and will be edited/improved/corrected.
+```
+
+
 A NN is a function $x \mapsto f_\theta(x)$, where $\theta$ collectively denotes all the parameters.
 
 Assume a probabilistic model where the output are rvs (random variables) and the data generating model is gaussian:
