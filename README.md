@@ -40,5 +40,3 @@ To update the online website, rebuild the jupyter-book and type
 ```
 ghp-import -n -p -f book/_build/html
 ```
-
-to push the newly built HTML to the `gh-pages` branch.
