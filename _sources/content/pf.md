@@ -208,7 +208,7 @@ $$
 \int dq ~ P(q) e^{-q^2/2} = (1+Q(\bar{s}, C))^{-1/2}.
 $$
 
-In particular we need $Q \ge -1$ (always satistied as it is a variance).
+In particular we need $Q \ge -1$ (always satisfied as it is a variance).
 
 
 ### Continuing the calculation
@@ -292,5 +292,5 @@ $$
 ```{warning}
 - The factor $A$ contains the normalization factors for the prior distribution. However, it should not be present (it can be eliminated using the proper integration measure for the weigths, i.e. including them in the partition function definition?).
 
-- Neither the factor $N_1/4\pi$ should be present (potentially, I do not care about additional constants in $\log \mathcal{Z}$, the only issue is that $N_1 \to \infty$).
+- Neither the factor $N_1/4\pi$ should be present (potentially, I do not care about additional constants in $\log \mathcal{Z}$, the only issue is that $N_1 \to \infty$. So $\mathcal{Z}$ would be the "regularized" partition function).
 ```

@@ -48,6 +48,12 @@ Choose IID gaussian priors over the parameters, as follows:
 w_{ij}^{(l)} &\sim \mathcal{N}(0, \sigma_w^2/N_{l-1}), & b_i^{(l)} &\sim \mathcal{N}(0, \sigma_b^2), & l&=1,2.
 \end{align*}
 
+```{important}
+This choice of NN parametrization is referred to as the *standard parametrization*. More on this topic will be written in later pages.
+```
+
+
+
 As parameters are rvs and data (inputs) are fixed, it follows that the pre-activations $h$ and the output values $f$ are also rvs. 
 
 The pre-activations are independent and normally distributed:

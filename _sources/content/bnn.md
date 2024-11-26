@@ -15,7 +15,7 @@ $$
 So the labels are not given directly by the output of the NN, but some noise is present. Physically speaking, we assume this noise to be regulated
 by a parameter $T=\beta^{-1}$ that we call "temperature", as usualy done in statistical mechanics.
 
-The distribution over the inputs $x$ is not being modelled, so, from a bayesian point of view, $x$ can be formally be regarder as a hyperparameter.
+The distribution over the inputs $x$ is not being modelled, so, from a bayesian point of view, $x$ can be formally regarder as a hyperparameter.
 
 We assume the parameters $\theta$ to be rvs, with some prior $p(\theta)$.
 
@@ -128,9 +128,18 @@ $$
 \end{cases}
 $$
 
+````{admonition} Proof of the last result
+:class: dropdown tip
+
+```{warning}
+Content still to write!
+```
+
+````
+
 If the $y_0$ is needed, simply add to $f_0$ the noise, $y_0 = f_0 + \varepsilon$, $\varepsilon\sim\mathcal{N}(0,T)$.
 
-So, thanks to Neal's theory, it is much simpler to sample network out from the posterior predictive! We just need to calculate the NNGP kernel.
+So, thanks to Neal's theory, it is much simpler to sample network outputs from the posterior predictive! We just need to calculate the NNGP kernel.
 
 
 ## Observables calculation

@@ -396,7 +396,7 @@ y \mid x, \theta \sim \mathcal{N}(f_\theta(x), T)
 \]</div>
 <p>So the labels are not given directly by the output of the NN, but some noise is present. Physically speaking, we assume this noise to be regulated
 by a parameter <span class="math notranslate nohighlight">\(T=\beta^{-1}\)</span> that we call “temperature”, as usualy done in statistical mechanics.</p>
-<p>The distribution over the inputs <span class="math notranslate nohighlight">\(x\)</span> is not being modelled, so, from a bayesian point of view, <span class="math notranslate nohighlight">\(x\)</span> can be formally be regarder as a hyperparameter.</p>
+<p>The distribution over the inputs <span class="math notranslate nohighlight">\(x\)</span> is not being modelled, so, from a bayesian point of view, <span class="math notranslate nohighlight">\(x\)</span> can be formally regarder as a hyperparameter.</p>
 <p>We assume the parameters <span class="math notranslate nohighlight">\(\theta\)</span> to be rvs, with some prior <span class="math notranslate nohighlight">\(p(\theta)\)</span>.</p>
 <p>The posterior is then:</p>
 <div class="math notranslate nohighlight">
@@ -492,8 +492,15 @@ f_0 \mid \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
 \bar{K} = K_{x_0x_0} - K_{x_0\mathcal{D}} \cdot \left( K_{\mathcal{D}\mathcal{D}} + \frac{1}{\beta}\mathbb{1} \right)^{-1} \cdot K_{\mathcal{D}x_0}
 \end{cases}
 \end{split}\]</div>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Proof of the last result</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Content still to write!</p>
+</div>
+</div>
 <p>If the <span class="math notranslate nohighlight">\(y_0\)</span> is needed, simply add to <span class="math notranslate nohighlight">\(f_0\)</span> the noise, <span class="math notranslate nohighlight">\(y_0 = f_0 + \varepsilon\)</span>, <span class="math notranslate nohighlight">\(\varepsilon\sim\mathcal{N}(0,T)\)</span>.</p>
-<p>So, thanks to Neal’s theory, it is much simpler to sample network out from the posterior predictive! We just need to calculate the NNGP kernel.</p>
+<p>So, thanks to Neal’s theory, it is much simpler to sample network outputs from the posterior predictive! We just need to calculate the NNGP kernel.</p>
 </section>
 <section id="observables-calculation">
 <h2>Observables calculation<a class="headerlink" href="#observables-calculation" title="Link to this heading">#</a></h2>
