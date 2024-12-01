@@ -84,10 +84,10 @@ They are like functions, but written in a markup language. They both serve a sim
 It is possible to use any directive / role that is available in Sphinx. Some examples follows.
 
 - Here is the `ref` role:  
-Click [Introduction](#../intro) for the first page of the book. Can also be typed as [Introduction](../intro.md).
+Click [Introduction](#welcome) for the first page of the book. Can also be typed as [Introduction](welcome.md).
 
 - The proper "role" is actually the `doc` role:  
-Click {doc}`../intro` for the first page of the book.
+Click {doc}`welcome` for the first page of the book.
 
 I enclose all the directives in a `tab-set` directive.
 
@@ -240,9 +240,9 @@ The `:::` can be used instead of `` ``` `` also in the previous directives.
 ## Citations
 
 It it possible cite references that are stored in a `bibtex` file.  
-To do this, use the role: {cite}`JaynesIT`, {cite}`howard2024BayesianRGflowneural`.
+To do this, use the role: {cite}`Pacelli_2023`.
 
-Moreover, you can insert a bibliography into your page as shown in [](../intro.md)
+Moreover, you can insert a bibliography into your page as shown in [](welcome.md)
 
 ## Learn more
 

@@ -110,7 +110,7 @@ $$
 
 As each component $f_i$ has zero mean, it follows from a simple calculation exploiting independence of the involved rvs.
 
-- The kernel function is (again, $\forall i$):
+- The kernel function, called the NNGP (Neural Network Gaussian Process) kernel is (again, $\forall i$):
 
 \begin{align*}
 K(x, x') &= \mathbb{E}[f_i(x), f_j(x)] - \cancel{\mathbb{E}[f_i(x)]}\cancel{\mathbb{E}[f_i(x')]} \\
@@ -119,7 +119,7 @@ K(x, x') &= \mathbb{E}[f_i(x), f_j(x)] - \cancel{\mathbb{E}[f_i(x)]}\cancel{\mat
 &= \sigma_w^2 C(x,x') + \sigma_b^2.
 \end{align*}
 
-The last passage is valid as the newly defined quantity (called the NNGP kernel):
+The last passage is valid as the newly defined quantity:
 
 $$
 C(x,x') := \mathbb{E}[\sigma(h_j(x)) \sigma(h_j(x'))]
