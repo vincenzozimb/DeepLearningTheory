@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=550fd47b" />
@@ -189,6 +189,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning Theory</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ntk.html">Gradient Descent dynamics and Neural Tangent Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bnn.html">Bayesian Neural Networks</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="pf.html">Partition function of 1 HL FC NN (single output)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="relu.html">Extention for finite mean activation functions</a></li>
@@ -492,9 +493,9 @@ Second line.</p>
 <p>It is possible to use any directive / role that is available in Sphinx. Some examples follows.</p>
 <ul class="simple">
 <li><p>Here is the <code class="docutils literal notranslate"><span class="pre">ref</span></code> role:<br />
-Click <a class="reference internal" href="#../intro"><span class="xref myst">Introduction</span></a> for the first page of the book. Can also be typed as <a class="reference internal" href="#../intro.md"><span class="xref myst">Introduction</span></a>.</p></li>
+Click <a class="reference internal" href="welcome.html"><span class="doc std std-doc">Introduction</span></a> for the first page of the book. Can also be typed as <a class="reference internal" href="welcome.html"><span class="std std-doc">Introduction</span></a>.</p></li>
 <li><p>The proper “role” is actually the <code class="docutils literal notranslate"><span class="pre">doc</span></code> role:<br />
-Click <span class="xref std std-doc">../intro</span> for the first page of the book.</p></li>
+Click <a class="reference internal" href="welcome.html"><span class="doc">Welcome</span></a> for the first page of the book.</p></li>
 </ul>
 <p>I enclose all the directives in a <code class="docutils literal notranslate"><span class="pre">tab-set</span></code> directive.</p>
 <div class="sd-tab-set docutils">
@@ -664,8 +665,8 @@ topic</label><div class="sd-tab-content docutils">
 <section id="citations">
 <h2>Citations<a class="headerlink" href="#citations" title="Link to this heading">#</a></h2>
 <p>It it possible cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file.<br />
-To do this, use the role: <span id="id2">[]</span>, <span id="id3">[]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page as shown in <a class="reference internal" href="#../intro.md"><code class="xref myst docutils literal notranslate"><span class="pre">../intro.md</span></code></a></p>
+To do this, use the role: <span id="id2">[<a class="reference internal" href="welcome.html#id2" title="R. Pacelli, S. Ariosto, M. Pastore, F. Ginelli, M. Gherardi, and P. Rotondo. A statistical mechanics framework for bayesian deep neural networks beyond the infinite-width limit. Nature Machine Intelligence, 5(12):1497–1507, December 2023. URL: http://dx.doi.org/10.1038/s42256-023-00767-6, doi:10.1038/s42256-023-00767-6.">PAP+23</a>]</span>.</p>
+<p>Moreover, you can insert a bibliography into your page as shown in <a class="reference internal" href="welcome.html"><span class="std std-doc">Welcome</span></a></p>
 </section>
 <section id="learn-more">
 <h2>Learn more<a class="headerlink" href="#learn-more" title="Link to this heading">#</a></h2>
