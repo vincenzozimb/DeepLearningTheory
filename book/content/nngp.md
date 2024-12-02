@@ -49,7 +49,9 @@ w_{ij}^{(l)} &\sim \mathcal{N}(0, \sigma_w^2/N_{l-1}), & b_i^{(l)} &\sim \mathca
 \end{align*}
 
 ```{important}
-This choice of NN parametrization is referred to as the *standard parametrization*. More on this topic will be written in later pages.
+This choice of NN parametrization is referred to as the *standard parametrization*. An alternative is the *NTK parametrization*, which consists in extracting a factor $\sigma_w/\sqrt{N_l}$ in front of the layer-tp-layer transformation and to sample the parameters from a $\mathcal{N}(0,1)$. 
+
+Both schemes give rise to the same Gaussian processes in the infinite-width limit, but in general there are differences in their dynamics under gradient descent. See the literature for more details.
 ```
 
 
