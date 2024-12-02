@@ -25,6 +25,13 @@ parts:
     - file: content/relu
 
 ####################
+# Notebooks
+- caption: Python notebooks
+  numbered: false
+  chapters:
+  - file: notebooks/keras
+
+####################
 # COURSE NOTES
 - caption: Course Notes
   numbered: false
