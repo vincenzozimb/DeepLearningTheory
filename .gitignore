@@ -169,3 +169,6 @@ book/tempCodeRunnerFile.yml
 
 # jupyter-book build folder
 _build/
+
+# python testing file
+test.py
