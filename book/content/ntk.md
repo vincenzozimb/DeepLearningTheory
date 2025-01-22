@@ -13,7 +13,7 @@
 A NN is a function $f(\cdot;\theta):\mathbb{R}^{n_0} \to \mathbb{R}^k$ (multiple outputs if $k>0$), defined in vector notation as (for $L$ hidden layers):
 
 $$
-f(x,\theta) = W^{(L)} \cdot \sigma(h^{(L)}(x)) + b^{(L)},
+f(x,\theta) = v \cdot \sigma(h^{(L)}(x)) + b,
 $$
 
 where:

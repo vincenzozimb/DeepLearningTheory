@@ -103,7 +103,7 @@ If we consider a new (unseen) example, from the properties of GP follows that:
 The posterior predictive for the network output is then:
 
 \begin{align*}
-p(f_0 \mid \mathcal{D}) &= \int d\vec{f} ~ p(f_0, \vec{f} \mid \vec{x}, \vec{y}) \\
+p(f_0 \mid x_0, \mathcal{D}) &= \int d\vec{f} ~ p(f_0, \vec{f} \mid \vec{x}, \vec{y}) \\
 &\propto \int d\vec{f} ~ p(\vec{y} \mid \vec{x}, \vec{f}, \cancel{f_0}) p(\vec{f}, f_0 \mid \vec{x}) & &\text{(Bayes theorem)} \\
 &= \int d\vec{f} ~ \mathcal{N}_{\vec{y}}(\vec{f}(\vec{x}), T) ~ \mathcal{N}_{[\vec{f}, f_0]}\left( 0, 
     \begin{bmatrix} 
@@ -113,10 +113,10 @@ p(f_0 \mid \mathcal{D}) &= \int d\vec{f} ~ p(f_0, \vec{f} \mid \vec{x}, \vec{y})
 \right)
 \end{align*}
 
-This is a known integral in GP theory, and the result is:
+This is a known integral in GP theory (see for example {cite}`Rasmussen2006Gaussian`), and the result is:
 
 $$
-f_0 \mid \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
+f_0 \mid x_0, \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
 $$
 
 with:
