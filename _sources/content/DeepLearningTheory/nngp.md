@@ -49,7 +49,7 @@ w_{ij}^{(l)} &\sim \mathcal{N}(0, \sigma_w^2/N_{l-1}), & b_i^{(l)} &\sim \mathca
 \end{align*}
 
 ```{important}
-This choice of NN parametrization is referred to as the *standard parametrization*. An alternative is the *NTK parametrization*, which consists in extracting a factor $\sigma_w/\sqrt{N_l}$ in front of the layer-tp-layer transformation and to sample the parameters from a $\mathcal{N}(0,1)$. 
+This choice of NN parametrization is referred to as the *standard parametrization*. An alternative is the *NTK parametrization*, which consists in extracting a factor $\sigma_w/\sqrt{N_l}$ in front of the layer-to-layer transformation and to sample the parameters from a $\mathcal{N}(0,1)$. 
 
 Both schemes give rise to the same Gaussian processes in the infinite-width limit, but in general there are differences in their dynamics under gradient descent. See the literature for more details.
 ```
@@ -136,7 +136,7 @@ This conclude the proof, as the statement $f\sim\mathcal{GP}$ was proven.
 Note that:
 
 \begin{align*}
-K^0(x, x') &:= \mathbb{E}[h_i(x), h_j(x)] - \cancel{\mathbb{E}[h_i(x)]}\cancel{\mathbb{E}[h_i(x')]} \\
+K^0(x, x') &:= \mathbb{E}[h_i(x), h_i(x')] - \cancel{\mathbb{E}[h_i(x)]}\cancel{\mathbb{E}[h_i(x')]} \\
 &= \sum_{jj'}^{N_0} \delta_{jj'} \frac{\sigma_w^2}{N_0} x_jx_{j'}' + \sigma_b^2 \\
 &= \sum_{j}^{N_0} \frac{\sigma_w^2}{N_0} x_jx_j' + \sigma_b^2 \\
 &= \sigma_w^2 \left( \frac{x \cdot x'}{N_0} \right) + \sigma_b^2.
