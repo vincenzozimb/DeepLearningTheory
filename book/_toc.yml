@@ -17,12 +17,12 @@ parts:
 - caption: Deep Learning Theory
   numbered: false
   chapters:
-  - file: content/nngp
-  - file: content/ntk
-  - file: content/bnn
-  - file: content/pf
+  - file: content/DeepLearningTheory/nngp
+  - file: content/DeepLearningTheory/ntk
+  - file: content/DeepLearningTheory/bnn
+  - file: content/DeepLearningTheory/pf
     sections:
-    - file: content/relu
+    - file: content/DeepLearningTheory/relu
 
 ####################
 # Notebooks
