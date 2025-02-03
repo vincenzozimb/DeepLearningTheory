@@ -1,0 +1,6 @@
+# To Do
+
+- [ ] Adjust numbering between parts of the same chapter
+- [ ] Adjust also numbered equation (no need to have all the equation numbered)
+- [ ] Add in relu_pf reference to equation in pf for performing substitution
+- [ ] Study Automatic Differentiation

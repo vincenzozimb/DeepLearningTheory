@@ -23,11 +23,3 @@ This is a work in progress!
 ## Cited references:
 ```{bibliography}
 ```
-
-## To Do
-
-- [ ] Automatic Differentiation 
-- [ ]
-- [ ]
-- [ ] 
-- [ ]

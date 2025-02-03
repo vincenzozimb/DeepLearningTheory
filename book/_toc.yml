@@ -21,8 +21,8 @@ parts:
   - file: content/DeepLearningTheory/ntk
   - file: content/DeepLearningTheory/bnn
   - file: content/DeepLearningTheory/pf
-    sections:
-    - file: content/DeepLearningTheory/relu
+  - file: content/DeepLearningTheory/relu_pf
+  - file: content/DeepLearningTheory/single_var_pf.md
 
 ####################
 # Notebooks
