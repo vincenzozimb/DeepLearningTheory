@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
@@ -427,21 +427,21 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(Dv = \prod_{i_1} dv_{i_1}, \quad Dw = \prod_{i_0i_1} dw_{i_1i_0}, \quad Dh^\mu = \prod_{i_1} dh_{i_1}^\mu\)</span>.</p></li>
 </ul>
 <p>The output of the NN is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2789c0fc-6455-4c24-93d2-9a2d63c6b499">
-<span class="eqno">(1)<a class="headerlink" href="#equation-2789c0fc-6455-4c24-93d2-9a2d63c6b499" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77ade286-4bf2-4af2-ae36-43ef5e5fc3d5">
+<span class="eqno">(1)<a class="headerlink" href="#equation-77ade286-4bf2-4af2-ae36-43ef5e5fc3d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\theta(x^\mu) = \frac{1}{\sqrt{N_1}} v_{i_1} \sigma \left( \frac{1}{\sqrt{N_0}} w_{i_1i_0}x_{i_0}^\mu \right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the activation function.</p>
 <p>As shown in <a class="reference internal" href="bnn.html"><span class="doc">Bayesian Neural Networks</span></a>, the loss function is generically given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a52b654-8053-432e-a0ab-4acab3e4d15e">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4a52b654-8053-432e-a0ab-4acab3e4d15e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b5de2b25-9a15-40d8-be94-99244530ac8b">
+<span class="eqno">(2)<a class="headerlink" href="#equation-b5de2b25-9a15-40d8-be94-99244530ac8b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathcal{L} = \frac{1}{2} || \vec{y} - \vec{f}_\theta(\vec{x}) ||^2 - \frac{1}{\beta} \log p(\theta)
 \end{equation}\]</div>
 <p>We choose here the parameter prior to be gaussian with zero mean and variances <span class="math notranslate nohighlight">\(\lambda_0\)</span> and <span class="math notranslate nohighlight">\(\lambda_1\)</span> for the input and hidden layer respectively.
 We will be interested in considering the squared norm of the parameters of each layer as observables (the norm of the synaptic matrices). As a consequence, we need to keep the explicit dependence of the loss function on <span class="math notranslate nohighlight">\(\lambda_0\)</span> and <span class="math notranslate nohighlight">\(\lambda_1\)</span>, i.e. we need to keep also the contribution of the prior normalization in the loss function (see the following equations).</p>
 <p>The loss function <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> is then given by (neglecting the irrelevant <span class="math notranslate nohighlight">\(2\pi\)</span> factors):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c6fe46e-e530-486e-8c75-ba003d6a547b">
-<span class="eqno">(3)<a class="headerlink" href="#equation-9c6fe46e-e530-486e-8c75-ba003d6a547b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c6172388-7f34-46a8-9c5f-6e99f886cbba">
+<span class="eqno">(3)<a class="headerlink" href="#equation-c6172388-7f34-46a8-9c5f-6e99f886cbba" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \beta \mathcal{L} = 
     \frac{\beta}{2} \sum_\mu (y^\mu - f_\theta(x^\mu))^2 
     + \frac{\lambda_1}{2} v_{i_1}v_{i_1} 
@@ -454,8 +454,8 @@ We will be interested in considering the squared norm of the parameters of each 
 <section id="calculation-of-the-partition-function-in-the-proportional-regime">
 <h2>Calculation of the partition function in the proportional regime:<a class="headerlink" href="#calculation-of-the-partition-function-in-the-proportional-regime" title="Link to this heading">#</a></h2>
 <p>We aim to calculate the following partition function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cec74f30-438b-48a0-a9b2-738b62585004">
-<span class="eqno">(4)<a class="headerlink" href="#equation-cec74f30-438b-48a0-a9b2-738b62585004" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b51e1b63-bd01-4f55-867c-3bfd02d2e7f7">
+<span class="eqno">(4)<a class="headerlink" href="#equation-b51e1b63-bd01-4f55-867c-3bfd02d2e7f7" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathcal{Z} = 
     \lambda_1^{N_1/2} \lambda_0^{N_0N_1/2}
     \int DvDw 
@@ -466,8 +466,8 @@ We will be interested in considering the squared norm of the parameters of each 
     \right\}
 \end{equation}\]</div>
 <p>As a first step, to decouple the nested integrals over the weigths, let us introduce delta functions over the preactivations and the output values, as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-118b3ee5-9f16-44a3-ae83-b7ac4514f492">
-<span class="eqno">(5)<a class="headerlink" href="#equation-118b3ee5-9f16-44a3-ae83-b7ac4514f492" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b9dbc0a6-a7e1-436b-b82b-3cc4e49a5179">
+<span class="eqno">(5)<a class="headerlink" href="#equation-b9dbc0a6-a7e1-436b-b82b-3cc4e49a5179" title="Permalink to this equation">#</a></span>\[\begin{align}
 
     \mathcal{Z} &amp;= 
     \lambda_1^{N_1/2} \lambda_0^{N_0N_1/2}
@@ -496,8 +496,8 @@ We will be interested in considering the squared norm of the parameters of each 
 
 \end{align}\]</div>
 <p>Now insert the integral representation of the Dirac deltas:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f64cd50-395f-4802-ae45-ba8986bf067c">
-<span class="eqno">(6)<a class="headerlink" href="#equation-4f64cd50-395f-4802-ae45-ba8986bf067c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-af7ea6b5-91ba-4ac7-83ad-f1280c589c10">
+<span class="eqno">(6)<a class="headerlink" href="#equation-af7ea6b5-91ba-4ac7-83ad-f1280c589c10" title="Permalink to this equation">#</a></span>\[\begin{align}
     
     &amp;= 
     \lambda_1^{N_1/2} \lambda_0^{N_0N_1/2}
@@ -529,8 +529,8 @@ We will be interested in considering the squared norm of the parameters of each 
 <ul class="simple">
 <li><p>Integral over the <span class="math notranslate nohighlight">\(v\)</span> variables:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-c671c259-a4f9-4711-84ee-3bb0f5b9fb3d">
-<span class="eqno">(7)<a class="headerlink" href="#equation-c671c259-a4f9-4711-84ee-3bb0f5b9fb3d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2a14fdfd-62a4-4ac6-ac2d-7f032d488768">
+<span class="eqno">(7)<a class="headerlink" href="#equation-2a14fdfd-62a4-4ac6-ac2d-7f032d488768" title="Permalink to this equation">#</a></span>\[\begin{align}
     
     &amp; \lambda_1^{N_1/2} \int Dv ~ \exp \left[
         - \frac{\lambda_1}{2}v_{i_1}v_{i_1} 
@@ -545,8 +545,8 @@ We will be interested in considering the squared norm of the parameters of each 
 <ul class="simple">
 <li><p>Integral over the <span class="math notranslate nohighlight">\(w\)</span> variables:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-2ab80989-07da-4d7f-b0f5-c5ba29b6db7f">
-<span class="eqno">(8)<a class="headerlink" href="#equation-2ab80989-07da-4d7f-b0f5-c5ba29b6db7f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4195cb16-8915-4ff6-9127-eadce61dd459">
+<span class="eqno">(8)<a class="headerlink" href="#equation-4195cb16-8915-4ff6-9127-eadce61dd459" title="Permalink to this equation">#</a></span>\[\begin{align}
     &amp; \lambda_0^{N_0N_1/2} \int Dw ~ \exp \left[
         - \frac{\lambda_0}{2}w_{i_1i_0}w_{i_1i_0}
         - i \frac{w_{i_1i_0}}{\sqrt{N_0}} \sum_\mu \bar{h}_{i_1}^\mu x_{i_0}^\mu 
@@ -559,8 +559,8 @@ We will be interested in considering the squared norm of the parameters of each 
 \end{align}\]</div>
 <p>Where again, I neglected the <span class="math notranslate nohighlight">\(2\pi\)</span> factors. In any case, if you initially included them in the loss function, they would still be canceled in these integrals.</p>
 <p>The partition function is then:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0d827c2-f9d5-4c9c-8816-ee670661cdd4">
-<span class="eqno">(9)<a class="headerlink" href="#equation-d0d827c2-f9d5-4c9c-8816-ee670661cdd4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-788d388f-cc36-47c4-a0a1-f04b179daec3">
+<span class="eqno">(9)<a class="headerlink" href="#equation-788d388f-cc36-47c4-a0a1-f04b179daec3" title="Permalink to this equation">#</a></span>\[\begin{align}
     
     \mathcal{Z} &amp;= 
     \int \prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \frac{Dh^\mu D\bar{h}^\mu}{(2\pi)^{N_1}}
@@ -577,8 +577,8 @@ We will be interested in considering the squared norm of the parameters of each 
 
 \end{align}\]</div>
 <p>Notice that the integrals over the <span class="math notranslate nohighlight">\(h\)</span> variables are all equals, so:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e70af27b-ca30-48b2-813f-f537d454084d">
-<span class="eqno">(10)<a class="headerlink" href="#equation-e70af27b-ca30-48b2-813f-f537d454084d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a2cb0b1d-dea4-4127-9e22-7e8133ee2d8e">
+<span class="eqno">(10)<a class="headerlink" href="#equation-a2cb0b1d-dea4-4127-9e22-7e8133ee2d8e" title="Permalink to this equation">#</a></span>\[\begin{align}
     
     \mathcal{Z} &amp;= 
     \int \prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} 
@@ -625,8 +625,8 @@ rank(X^tX) \le \min \{rank(X^t),rank(X) \} = rank(X) \le N_0 &lt; P
 <section id="going-back-to-the-partition-function">
 <h3>Going back to the partition function<a class="headerlink" href="#going-back-to-the-partition-function" title="Link to this heading">#</a></h3>
 <p>Let us calculate the integral in the <span class="math notranslate nohighlight">\(\bar{h}\)</span> variables:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a3e07778-daa2-40f2-8177-0f673953ec48">
-<span class="eqno">(11)<a class="headerlink" href="#equation-a3e07778-daa2-40f2-8177-0f673953ec48" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b0c7360f-568a-4779-911b-1df3d1d53d66">
+<span class="eqno">(11)<a class="headerlink" href="#equation-b0c7360f-568a-4779-911b-1df3d1d53d66" title="Permalink to this equation">#</a></span>\[\begin{align}
     
     &amp; \int \prod_\mu \frac{d\bar{h}^\mu}{2\pi} 
     \exp \left(
@@ -644,8 +644,8 @@ rank(X^tX) \le \min \{rank(X^t),rank(X) \} = rank(X) \le N_0 &lt; P
 
 \end{align}\]</div>
 <p>So the partition function is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6cb8a25f-a4e0-4e84-8f00-71d7860e10b1">
-<span class="eqno">(12)<a class="headerlink" href="#equation-6cb8a25f-a4e0-4e84-8f00-71d7860e10b1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5026f3d5-8d39-4bd5-94fe-06398e7c8540">
+<span class="eqno">(12)<a class="headerlink" href="#equation-5026f3d5-8d39-4bd5-94fe-06398e7c8540" title="Permalink to this equation">#</a></span>\[\begin{align}
     
     \mathcal{Z} &amp;= 
     \int \prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} 
@@ -664,8 +664,8 @@ rank(X^tX) \le \min \{rank(X^t),rank(X) \} = rank(X) \le N_0 &lt; P
 
 \end{align}\]</div>
 <p>Let us introduce a new variable <span class="math notranslate nohighlight">\(q\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a606f7c-6c7f-4c3a-bb12-d509df1739af">
-<span class="eqno">(13)<a class="headerlink" href="#equation-1a606f7c-6c7f-4c3a-bb12-d509df1739af" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-69d66ced-9296-40de-b09c-8d4602c2d1ae">
+<span class="eqno">(13)<a class="headerlink" href="#equation-69d66ced-9296-40de-b09c-8d4602c2d1ae" title="Permalink to this equation">#</a></span>\[\begin{align}
     
     \mathcal{Z} &amp;= 
     \int \prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} 
@@ -697,8 +697,8 @@ rank(X^tX) \le \min \{rank(X^t),rank(X) \} = rank(X) \le N_0 &lt; P
     p_Y(y) = \int dx ~ p_X(x) \delta(y-f(x)).
 \]</div>
 </div>
-<div class="amsmath math notranslate nohighlight" id="equation-0d979ca7-2519-41ac-a925-bf6f1d941d71">
-<span class="eqno">(14)<a class="headerlink" href="#equation-0d979ca7-2519-41ac-a925-bf6f1d941d71" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e03a9aef-27b9-4eac-b89e-73d499b46373">
+<span class="eqno">(14)<a class="headerlink" href="#equation-e03a9aef-27b9-4eac-b89e-73d499b46373" title="Permalink to this equation">#</a></span>\[\begin{equation}
 
     \mathcal{Z} = 
     \int \prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} 
@@ -719,8 +719,8 @@ rank(X^tX) \le \min \{rank(X^t),rank(X) \} = rank(X) \le N_0 &lt; P
 q = \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu \sigma(h^\mu).
 \]</div>
 <p>Its mean value is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55ca0f74-d2ba-47a9-a4d4-bf2bc707ae2b">
-<span class="eqno">(15)<a class="headerlink" href="#equation-55ca0f74-d2ba-47a9-a4d4-bf2bc707ae2b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-97627b5f-e467-4762-b04f-b134dae99f1b">
+<span class="eqno">(15)<a class="headerlink" href="#equation-97627b5f-e467-4762-b04f-b134dae99f1b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{E}[q] = \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu \mathbb{E}[\sigma(h^\mu)].
 \end{equation}\]</div>
 <div class="admonition attention">
@@ -732,16 +732,16 @@ Otherwise, the <span class="math notranslate nohighlight">\(s\)</span> variables
 <h4>Zero-mean activation functions<a class="headerlink" href="#zero-mean-activation-functions" title="Link to this heading">#</a></h4>
 <p>We assume to work with zero-mean activation functions, that are activation functions whose mean according to a centered gaussian distribution is zero.
 Note that ReLU is not in this class.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3da903ea-fa75-451c-acdf-5eb4b08a3b0e">
-<span class="eqno">(16)<a class="headerlink" href="#equation-3da903ea-fa75-451c-acdf-5eb4b08a3b0e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-64aed2cb-2b08-44b0-bab4-3c543fceba62">
+<span class="eqno">(16)<a class="headerlink" href="#equation-64aed2cb-2b08-44b0-bab4-3c543fceba62" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbb{E}[\sigma(h^\mu)] &amp;= 
     \int \prod_\mu dh^\mu P(\{ h^\mu \}) \sigma(h^\mu) 
     = 0 &amp; \Longrightarrow &amp; &amp;\mathbb{E}[q]=0.
 \end{align}\]</div>
 <hr class="docutils" />
 <p>Now calculate the variance:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-558afb78-6684-4581-aeb5-9cee74e661c8">
-<span class="eqno">(17)<a class="headerlink" href="#equation-558afb78-6684-4581-aeb5-9cee74e661c8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-295b4eb5-1065-4830-8356-f9f8dc9f81fd">
+<span class="eqno">(17)<a class="headerlink" href="#equation-295b4eb5-1065-4830-8356-f9f8dc9f81fd" title="Permalink to this equation">#</a></span>\[\begin{align}
     \mathbb{E}[q^2] &amp;= 
     \frac{1}{\lambda_1N_1} 
     \sum_{\mu\nu} \bar{s}^\mu \bar{s}^\nu \mathbb{E}[\sigma(h^\mu)\sigma(h^\nu)] \\
@@ -760,8 +760,8 @@ q &amp;\to \mathcal{N}(0, Q(\bar{s}, C)) &amp; &amp;\text{for } P,N_1 \to \infty
 \end{align*}\]</div>
 <p>Note that the proportional limit is the appropriate limit to invoke the BM theorem, as the sum is among <span class="math notranslate nohighlight">\(P\)</span> terms but the prefactor is <span class="math notranslate nohighlight">\(1/\sqrt{N_1}\)</span>.</p>
 <p>So, in this limit, we can perform the integral in <span class="math notranslate nohighlight">\(q\)</span> and the result is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c12f6812-3d18-48d6-b99a-bbc4e5e4ea63">
-<span class="eqno">(18)<a class="headerlink" href="#equation-c12f6812-3d18-48d6-b99a-bbc4e5e4ea63" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b2ab024-2825-41c7-b1c3-43b18765ca57">
+<span class="eqno">(18)<a class="headerlink" href="#equation-7b2ab024-2825-41c7-b1c3-43b18765ca57" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \int dq ~ P(q) e^{-q^2/2} = (1+Q(\bar{s}, C))^{-1/2}.
 \end{equation}\]</div>
 <p>In particular we need <span class="math notranslate nohighlight">\(Q \ge -1\)</span> (always satisfied as it is a variance).</p>
@@ -769,8 +769,8 @@ q &amp;\to \mathcal{N}(0, Q(\bar{s}, C)) &amp; &amp;\text{for } P,N_1 \to \infty
 </section>
 <section id="continuing-the-calculation">
 <h3>Continuing the calculation<a class="headerlink" href="#continuing-the-calculation" title="Link to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-1fcf805b-d493-4b11-b583-19e9ea72bc4a">
-<span class="eqno">(19)<a class="headerlink" href="#equation-1fcf805b-d493-4b11-b583-19e9ea72bc4a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b29fb639-4def-4ef4-a8b5-bdb04ae0e078">
+<span class="eqno">(19)<a class="headerlink" href="#equation-b29fb639-4def-4ef4-a8b5-bdb04ae0e078" title="Permalink to this equation">#</a></span>\[\begin{align}
 
     \mathcal{Z} &amp;= 
     \int \prod_\mu \frac{ds^\mu d \bar{s}^\mu}{2\pi} 
@@ -790,8 +790,8 @@ q &amp;\to \mathcal{N}(0, Q(\bar{s}, C)) &amp; &amp;\text{for } P,N_1 \to \infty
 
 \end{align}\]</div>
 <p>Now introduce a Dirac delta over the function <span class="math notranslate nohighlight">\(Q(\bar{s}, C)\)</span> and also its integral representation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9dcb4fc2-426b-4bba-a34c-64083a135277">
-<span class="eqno">(20)<a class="headerlink" href="#equation-9dcb4fc2-426b-4bba-a34c-64083a135277" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-716b82b6-4048-48c8-87f8-cda00ac75093">
+<span class="eqno">(20)<a class="headerlink" href="#equation-716b82b6-4048-48c8-87f8-cda00ac75093" title="Permalink to this equation">#</a></span>\[\begin{align}
 
     \mathcal{Z} &amp;= \beta^{-P/2} 
     \int \prod_\mu d \bar{s}^\mu \frac{dQ d \bar{Q}}{2\pi}
@@ -807,8 +807,8 @@ q &amp;\to \mathcal{N}(0, Q(\bar{s}, C)) &amp; &amp;\text{for } P,N_1 \to \infty
 
 \end{align}\]</div>
 <p>Now change variable <span class="math notranslate nohighlight">\(\bar{Q} \to -iN_1\bar{Q}/2\)</span>. This makes the integral complex, and <span class="math notranslate nohighlight">\(\bar{Q}\)</span> now runs from <span class="math notranslate nohighlight">\(-i\infty\)</span> to <span class="math notranslate nohighlight">\(i\infty\)</span>. However, as the integrand is holomorphic, the same result is obtained deforming the integration path back to a real one.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85960bcc-2dec-424a-aedf-429e81ed3bc0">
-<span class="eqno">(21)<a class="headerlink" href="#equation-85960bcc-2dec-424a-aedf-429e81ed3bc0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aa82023d-0661-4eae-b0d7-0ef1212811fa">
+<span class="eqno">(21)<a class="headerlink" href="#equation-aa82023d-0661-4eae-b0d7-0ef1212811fa" title="Permalink to this equation">#</a></span>\[\begin{align}
 
     \mathcal{Z} &amp;= \frac{N_1}{2} \beta^{-P/2} 
     \int \prod_\mu d \bar{s}^\mu \frac{dQ d \bar{Q}}{2\pi}
@@ -824,8 +824,8 @@ q &amp;\to \mathcal{N}(0, Q(\bar{s}, C)) &amp; &amp;\text{for } P,N_1 \to \infty
 
 \end{align}\]</div>
 <p>Rearranging it becomes clear that the integral on the <span class="math notranslate nohighlight">\(\bar{s}\)</span> variables can be performed:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ecc1e8e9-222b-4bc7-8647-35239ef46129">
-<span class="eqno">(22)<a class="headerlink" href="#equation-ecc1e8e9-222b-4bc7-8647-35239ef46129" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d3b5f5b5-0b83-4979-b35e-18a5b5876158">
+<span class="eqno">(22)<a class="headerlink" href="#equation-d3b5f5b5-0b83-4979-b35e-18a5b5876158" title="Permalink to this equation">#</a></span>\[\begin{align}
 
     \mathcal{Z} &amp;\propto \frac{N_1}{2} \beta^{-P/2} 
     \int dQ d \bar{Q}
@@ -843,8 +843,8 @@ q &amp;\to \mathcal{N}(0, Q(\bar{s}, C)) &amp; &amp;\text{for } P,N_1 \to \infty
     
 \end{align}\]</div>
 <p>And the result is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d3afad67-d76e-45db-b8af-2635265bdf53">
-<span class="eqno">(23)<a class="headerlink" href="#equation-d3afad67-d76e-45db-b8af-2635265bdf53" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-54a63d9a-bc36-4d5e-bef8-7b00c30cc0c7">
+<span class="eqno">(23)<a class="headerlink" href="#equation-54a63d9a-bc36-4d5e-bef8-7b00c30cc0c7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 
     \mathcal{Z} \propto 
     \frac{N_1}{2} \beta^{-P/2} \int dQ d \bar{Q}
