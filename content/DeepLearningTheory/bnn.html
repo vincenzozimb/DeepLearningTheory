@@ -193,10 +193,9 @@
 <li class="toctree-l1"><a class="reference internal" href="nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ntk.html">Gradient Descent dynamics and Neural Tangent Kernel</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bayesian Neural Networks</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="pf.html">Partition function of 1 HL FC NN (single output)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="relu.html">Extention for finite mean activation functions</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="pf.html">Partition function of 1 HL FC NN (single output)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relu_pf.html">Extention for finite mean activation functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single_var_pf.html">Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -433,7 +432,7 @@ p(\theta \mid \vec{y}, \vec{x}) \propto p(\vec{y} \mid \vec{x}, \theta) p(\theta
 <p>The calculation of <span class="math notranslate nohighlight">\(\hat{\theta}_{MAP}\)</span> is equivalent to the minimization of the following loss function:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\mathcal{L}(\theta;\mathcal{D}) = \frac{1}{2} ||\vec{y} - \vec{f}_\theta(\vec{x}) ||^2 + \frac{1}{\beta}\log p(\theta),
+\mathcal{L}(\theta;\mathcal{D}) = \frac{1}{2} ||\vec{y} - \vec{f}_\theta(\vec{x}) ||^2 - \frac{1}{\beta}\log p(\theta),
 \end{equation*}\]</div>
 <p>where the first term is the MSE (Mean Square Error) and the second acts as regularization, <span class="math notranslate nohighlight">\(\mathcal{L}_{reg}\)</span>.</p>
 <p>Notice that the zero-temperature limit <span class="math notranslate nohighlight">\(\beta \to \infty\)</span> corresponds to MLE (Maximum Likelihood Estimation), and to a regression task without regularization (i.e. enforce error minimization).</p>

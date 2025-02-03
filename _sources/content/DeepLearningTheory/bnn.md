@@ -34,7 +34,7 @@ The MAP (Maximum A Posteriori) estimator is:
 The calculation of $\hat{\theta}_{MAP}$ is equivalent to the minimization of the following loss function:
 
 \begin{equation*}
-\mathcal{L}(\theta;\mathcal{D}) = \frac{1}{2} ||\vec{y} - \vec{f}_\theta(\vec{x}) ||^2 + \frac{1}{\beta}\log p(\theta),
+\mathcal{L}(\theta;\mathcal{D}) = \frac{1}{2} ||\vec{y} - \vec{f}_\theta(\vec{x}) ||^2 - \frac{1}{\beta}\log p(\theta),
 \end{equation*}
 
 where the first term is the MSE (Mean Square Error) and the second acts as regularization, $\mathcal{L}_{reg}$.

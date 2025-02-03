@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Extention for finite mean activation functions &#8212; Deep Learning Theory</title>
+    <title>Single vatiable expression for \(S\) in the case of zero-mean activation functions &#8212; Deep Learning Theory</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
@@ -60,13 +60,13 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/DeepLearningTheory/relu';</script>
-    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/DeepLearningTheory/relu.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/DeepLearningTheory/single_var_pf';</script>
+    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/DeepLearningTheory/single_var_pf.html" />
     <link rel="icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="MNIST with Keras" href="../../notebooks/keras.html" />
-    <link rel="prev" title="Partition function of 1 HL FC NN (single output)" href="pf.html" />
+    <link rel="prev" title="Extention for finite mean activation functions" href="relu_pf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,10 +193,9 @@
 <li class="toctree-l1"><a class="reference internal" href="nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ntk.html">Gradient Descent dynamics and Neural Tangent Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bnn.html">Bayesian Neural Networks</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="pf.html">Partition function of 1 HL FC NN (single output)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Extention for finite mean activation functions</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="pf.html">Partition function of 1 HL FC NN (single output)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relu_pf.html">Extention for finite mean activation functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -296,7 +295,7 @@
       
       
       
-      <li><a href="../../_sources/content/DeepLearningTheory/relu.md" target="_blank"
+      <li><a href="../../_sources/content/DeepLearningTheory/single_var_pf.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -378,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Extention for finite mean activation functions</h1>
+    <h1>Single vatiable expression for S in the case of zero-mean activation functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,74 +391,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="extention-for-finite-mean-activation-functions">
-<h1>Extention for finite mean activation functions<a class="headerlink" href="#extention-for-finite-mean-activation-functions" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="single-vatiable-expression-for-s-in-the-case-of-zero-mean-activation-functions">
+<h1>Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions<a class="headerlink" href="#single-vatiable-expression-for-s-in-the-case-of-zero-mean-activation-functions" title="Link to this heading">#</a></h1>
 <p>See the page <a class="reference internal" href="pf.html"><span class="doc">Partition function of 1 HL FC NN (single output)</span></a>.</p>
+<p>It turns out that, at least in the case of zero-mean activation functions, it is possible to derive an effective action that depends only on a single variable. In particular, it is not necessary to introduce the variables <span class="math notranslate nohighlight">\(Q\)</span> and its conjugate <span class="math notranslate nohighlight">\(\bar{Q}\)</span> as done in <a class="reference internal" href="pf.html"><span class="doc">Partition function of 1 HL FC NN (single output)</span></a>.</p>
+<p>The single variable expression follows from an integral identity for gamma distribution (in the single hidden layer case), and in particular using the moment generating function / Laplace transform of a gamma distribution:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c442d186-efc5-43be-97fa-e369fe220f38">
+<span class="eqno">(24)<a class="headerlink" href="#equation-c442d186-efc5-43be-97fa-e369fe220f38" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    f(x) = \frac{}{\Gamma()}
+\end{equation}\]</div>
 <p>We can restart the calculation from:</p>
-<div class="math notranslate nohighlight">
-\[
-\mathcal{Z} = A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] \times \left[ \int dq ~ e^{-q^2/2} P(q) \right]^{N_1}
-\]</div>
-<p>In the general case:</p>
-<div class="math notranslate nohighlight">
-\[
-q = \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu \sigma(h^\mu).
-\]</div>
-<p>With mean value:</p>
-<div class="math notranslate nohighlight">
-\[
-\mathbb{E}[q] = \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu \mathbb{E}[\sigma(h^\mu)] =: \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu m^\mu=:\langle q \rangle.
-\]</div>
-<p>So, applying the BM theorem to the variable <span class="math notranslate nohighlight">\(q - \langle q \rangle\)</span> yields <span class="math notranslate nohighlight">\(q \sim \mathcal{N}(\langle q \rangle, Q(\bar{s}, C))\)</span>, where again:</p>
-<div class="math notranslate nohighlight">
-\[
-Q(\bar{s}, C) := \frac{1}{\lambda_1N_1} \sum_{\mu\nu}\bar{s}^\mu K_{\mu\nu} \bar{s}^\nu
-\]</div>
-<p>So the integral in the <span class="math notranslate nohighlight">\(q\)</span> variable is now (in this calculation I omit the dependence of <span class="math notranslate nohighlight">\(Q\)</span>):</p>
-<div class="dropdown tip admonition">
-<p class="admonition-title">Formula</p>
-<p>Gaussian integral</p>
-<div class="math notranslate nohighlight">
-\[
-\int_{-\infty}^{\infty} dx ~ e^{-(ax^2+bx+c)} = \sqrt{\frac{\pi}{a}} e^{\frac{b^2}{4a}-c}
-\]</div>
-</div>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{\sqrt{2\pi Q}} \int dq ~ e^{-(q - \langle q \rangle)^2 / 2Q} e^{-q^2/2} = \frac{1}{\sqrt{1+Q}} \exp \left( -\frac{\langle q \rangle^2}{2(1+Q)} \right)
-\]</div>
-<p>The <span class="math notranslate nohighlight">\(\langle q \rangle^2\)</span> term is:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-\langle q \rangle^2 &amp;= \frac{1}{\lambda_1N_1} \sum_{\mu\nu} \bar{s}^\mu K^{(1)}_{\mu\nu} \bar{s}^\nu, &amp; K^{(1)}_{\mu\nu}&amp;:=m^\mu m^\nu.
-\end{align*}\]</div>
-<p>So:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathcal{Z} &amp;= A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] (1+Q(\bar{s},C))^{-N_1/2} \times \\
-&amp;\qquad \times \exp \left[ -\frac{1}{2\lambda_1(1+Q(\bar{s}, C))}\sum_{\mu\nu}\bar{s}^\mu K^{(1)}_{\mu\nu} \bar{s}^\nu \right].
-\end{split}\]</div>
-<p>Inserting a Dirac delta over <span class="math notranslate nohighlight">\(Q\)</span> and its Fourier representation:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathcal{Z} &amp;= A \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \frac{dQd\bar{Q}}{2\pi} \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] (1+Q)^{-N_1/2} \times \\
-&amp;\qquad \times e^{iQ\bar{Q}} \exp \left[ -\frac{1}{2\lambda_1(1+Q)}\sum_{\mu\nu}\bar{s}^\mu K^{(1)}_{\mu\nu} \bar{s}^\nu -i\frac{\bar{Q}}{\lambda_1N_1} \sum_{\mu\nu}\bar{s}^\mu K_{\mu\nu} \bar{s}^\nu \right].
-\end{split}\]</div>
-<p>Changing <span class="math notranslate nohighlight">\(\bar{Q} \to -iN_1\bar{Q}/2\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathcal{Z} &amp;= A \frac{N_1}{2} \int\left(\prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \right) \frac{dQd\bar{Q}}{2\pi} \exp \left[-\frac{\beta}{2}\sum_\mu (y^\mu - s^\mu)^2 +i \sum_\mu s^\mu \bar{s}^\mu \right] (1+Q)^{-N_1/2} \times \\
-&amp;\qquad \times e^{\frac{N_1}{2}Q\bar{Q}} \exp \left[ -\frac{1}{2\lambda_1(1+Q)}\sum_{\mu\nu}\bar{s}^\mu K^{(1)}_{\mu\nu} \bar{s}^\nu -\frac{\bar{Q}}{2\lambda_1} \sum_{\mu\nu}\bar{s}^\mu K_{\mu\nu} \bar{s}^\nu \right].
-\end{split}\]</div>
-<p>The same integral of the zero-mean case is obtained under the substitution:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{\bar{Q}}{\lambda_1} K \to \frac{\bar{Q}}{\lambda_1} K + \frac{1}{\lambda_1(1+Q)}K^{(1)}.
-\]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>In the final result there is a factor <span class="math notranslate nohighlight">\(-\frac{\bar{Q}}{\lambda_1}K^{(1)}\)</span> that is missing in my calculation.</p>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -493,12 +434,12 @@ Q(\bar{s}, C) := \frac{1}{\lambda_1N_1} \sum_{\mu\nu}\bar{s}^\mu K_{\mu\nu} \bar
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="pf.html"
+       href="relu_pf.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Partition function of 1 HL FC NN (single output)</p>
+        <p class="prev-next-title">Extention for finite mean activation functions</p>
       </div>
     </a>
     <a class="right-next"

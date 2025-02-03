@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Test 5.2 &#8212; Deep Learning Theory</title>
+    <title>Extention for finite mean activation functions &#8212; Deep Learning Theory</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
@@ -58,12 +58,15 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/Test/test52';</script>
-    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/Test/test52.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/DeepLearningTheory/relu_pf';</script>
+    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/DeepLearningTheory/relu_pf.html" />
     <link rel="icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Test 5.1" href="test51.html" />
+    <link rel="next" title="Single vatiable expression for \(S\) in the case of zero-mean activation functions" href="single_var_pf.html" />
+    <link rel="prev" title="Partition function of 1 HL FC NN (single output)" href="pf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,13 +189,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../formulae.html">Tables, formulae</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning Theory</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../DeepLearningTheory/nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../DeepLearningTheory/ntk.html">Gradient Descent dynamics and Neural Tangent Kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../DeepLearningTheory/bnn.html">Bayesian Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../DeepLearningTheory/pf.html">Partition function of 1 HL FC NN (single output)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../DeepLearningTheory/relu_pf.html">Extention for finite mean activation functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../DeepLearningTheory/single_var_pf.html">Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ntk.html">Gradient Descent dynamics and Neural Tangent Kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bnn.html">Bayesian Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pf.html">Partition function of 1 HL FC NN (single output)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Extention for finite mean activation functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single_var_pf.html">Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -203,24 +206,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../course.html">Course: “Advanced Statistical Mechanics: Introduction to deep learning theory”</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing layout</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../instructions.html">Instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test1.html">Test 1</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="test2.html">Test 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="test21.html">Test 2.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="test211.html">Test 211</a></li>
-<li class="toctree-l3"><a class="reference internal" href="test212.html">Test 212</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Test/test1.html">Test 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Test/test2.html">Test 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Test/test21.html">Test 2.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Test/test211.html">Test 211</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Test/test212.html">Test 212</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="test22.html">Test 2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="test23.html">Test 2.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Test/test22.html">Test 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Test/test23.html">Test 2.3</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="test3.html">Test 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test4.html">Test 4</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="test5.html">Test 5</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="test51.html">Test 5.1</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Test 5.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Test/test3.html">Test 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Test/test4.html">Test 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Test/test5.html">Test 5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Test/test51.html">Test 5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Test/test52.html">Test 5.2</a></li>
 </ul>
 </details></li>
 </ul>
@@ -292,7 +295,7 @@
       
       
       
-      <li><a href="../../_sources/content/Test/test52.md" target="_blank"
+      <li><a href="../../_sources/content/DeepLearningTheory/relu_pf.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -374,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Test 5.2</h1>
+    <h1>Extention for finite mean activation functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,8 +391,128 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="test-5-2">
-<h1>Test 5.2<a class="headerlink" href="#test-5-2" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="extention-for-finite-mean-activation-functions">
+<h1>Extention for finite mean activation functions<a class="headerlink" href="#extention-for-finite-mean-activation-functions" title="Link to this heading">#</a></h1>
+<p>See the page <a class="reference internal" href="pf.html"><span class="doc">Partition function of 1 HL FC NN (single output)</span></a>.</p>
+<p>We can restart the calculation from:</p>
+<div class="math notranslate nohighlight">
+\[
+    \mathcal{Z} = 
+    \int \prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} 
+    \exp \left[
+        - \frac{\beta}{2} \sum_\mu (y^\mu - s^\mu)^2 
+        + i \sum_\mu s^\mu \bar{s}^\mu 
+    \right] \times 
+    \left[ 
+        \int dq ~ e^{-q^2/2} P(q) 
+    \right]^{N_1}
+\]</div>
+<p>In the general case:</p>
+<div class="math notranslate nohighlight">
+\[
+q = \frac{1}{\sqrt{\lambda_1N_1}}\sum_\mu \bar{s}^\mu \sigma(h^\mu).
+\]</div>
+<p>With mean value:</p>
+<div class="math notranslate nohighlight">
+\[
+    \mathbb{E}[q] = 
+    \frac{1}{\sqrt{\lambda_1N_1}} \sum_\mu \bar{s}^\mu \mathbb{E}[\sigma(h^\mu)] =: 
+    \frac{1}{\sqrt{\lambda_1N_1}} \sum_\mu \bar{s}^\mu m^\mu =:
+    m_q(\bar{s}, C).
+\]</div>
+<p>So, applying the BM theorem to the variable <span class="math notranslate nohighlight">\(q - m_q(\bar{s}, C)\)</span> yields <span class="math notranslate nohighlight">\(q \sim \mathcal{N}(m_q(\bar{s}, C), Q(\bar{s}, C))\)</span>, where, this time:</p>
+<div class="math notranslate nohighlight">
+\[
+Q(\bar{s}, C) := \frac{1}{\lambda_1N_1} \sum_{\mu\nu} \bar{s}^\mu (K_{\mu\nu} -m_\mu m_\nu) \bar{s}^\nu
+\]</div>
+<p>So the integral in the <span class="math notranslate nohighlight">\(q\)</span> variable is now (in this calculation I omit the dependence of <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(Q=Q(\bar{s}, C)\)</span>):</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Formula</p>
+<p>Gaussian integral</p>
+<div class="math notranslate nohighlight">
+\[
+    \int_{-\infty}^{\infty} dx ~ e^{-(ax^2+bx+c)} = \sqrt{\frac{\pi}{a}} e^{\frac{b^2}{4a}-c}
+\]</div>
+</div>
+<div class="math notranslate nohighlight">
+\[
+    \frac{1}{\sqrt{2\pi Q}} \int dq ~ e^{-(q - m_q)^2 / 2Q} e^{-q^2/2} =
+    \frac{1}{\sqrt{1+Q}} \exp \left( 
+        -\frac{m_q^2}{2(1+Q)} 
+    \right)
+\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \mathcal{Z} &amp;= 
+    \int \prod_\mu \frac{ds^\mu d\bar{s}^\mu}{2\pi} \exp \left[
+        - \frac{\beta}{2} \sum_\mu (y^\mu - s^\mu)^2 
+        + i \sum_\mu s^\mu \bar{s}^\mu 
+    \right] \times \\
+    
+    &amp; \qquad \times 
+    (1+Q(\bar{s},C))^{-N_1/2} \exp \left[
+        - \frac{N_1 m_q(\bar{s}, C)^2 / 2}{1+Q(\bar{s}, C)}
+    \right].
+\end{split}\]</div>
+<p>Let’s solve the integral in the <span class="math notranslate nohighlight">\(s\)</span> variables to simplify the expression:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+
+    \mathcal{Z} &amp;\propto
+    \beta^{-P/2} \int \prod_\mu d\bar{s}^\mu \exp \left[
+        + i \sum_\mu y^\mu \bar{s}^\mu 
+        - \frac{1}{2\beta} \sum_\mu (s^\mu)^2 
+    \right] \times \\
+
+    &amp; \qquad \times 
+    (1+Q(\bar{s}, C))^{-N_1/2} \exp \left[
+        - \frac{N_1 m_q^2(\bar{s}, C) / 2}{1+Q(\bar{s}, C)}
+    \right].
+
+\end{align*}\]</div>
+<p>Inserting a Dirac delta over <span class="math notranslate nohighlight">\(Q\)</span> and its Fourier representation:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+
+    \mathcal{Z} &amp;\propto
+    \beta^{-P/2} \int dQ d\bar{Q} \prod_\mu d\bar{s}^\mu \exp \left[
+        + i \sum_\mu y^\mu \bar{s}^\mu 
+        - \frac{1}{2\beta} \sum_\mu (s^\mu)^2 
+    \right] \times \\
+
+    &amp; \qquad \times 
+    (1+Q)^{-N_1/2} \exp \left[
+        - \frac{N_1 m_q^2(\bar{s}, C) / 2}{1+Q}
+    \right] \exp [iQ\bar{Q} - i \bar{Q}Q(\bar{s}, C)].
+
+\end{align*}\]</div>
+<p>Changing <span class="math notranslate nohighlight">\(\bar{Q} \to -iN_1\bar{Q}/2\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+
+    \mathcal{Z} &amp;\propto 
+    \frac{N_1}{2} \beta^{-P/2} \int dQ d\bar{Q} 
+    (1+Q)^{-N_1/2} \exp \left[
+        \frac{N_1}{2}Q\bar{Q} 
+        + i \sum_\mu y^\mu \bar{s}^\mu
+        - \frac{1}{2\beta} \sum_\mu (s^\mu)^2
+    \right] \times \\
+
+    &amp; \qquad \times \exp \left[
+        - \frac{1}{1+Q}\frac{1}{2\lambda_1} \sum_{\mu\nu} \bar{s}^\mu m_\mu m_\nu \bar{s}^\nu 
+        - \frac{\bar{Q}}{2\lambda_1} \sum_{\mu\nu} \bar{s}^\mu (K_{\mu\nu} 
+        - m_\mu m_\nu) \bar{s}^\nu
+    \right]
+
+\end{align*}\]</div>
+<p>This is the same integral of the zero-mean case, upon substituting:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \frac{\bar{Q}}{\lambda_1} K &amp;\to \frac{\bar{Q}}{\lambda_1} K - \frac{\bar{Q}}{\lambda_1} m \otimes m + \frac{1}{\lambda_1(1+Q)} m \otimes m \\
+    
+    &amp; \to \frac{\bar{Q}}{\lambda_1} K - \frac{1}{\lambda_1} \left( \bar{Q} - \frac{1}{1+Q} \right) m \otimes m.
+\end{align*}\]</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -405,7 +528,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./content/Test"
+            path: "./content/DeepLearningTheory"
         },
         predefinedOutput: true
     }
@@ -423,13 +546,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="test51.html"
+       href="pf.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Test 5.1</p>
+        <p class="prev-next-title">Partition function of 1 HL FC NN (single output)</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="single_var_pf.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

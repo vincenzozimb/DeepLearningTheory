@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e85b9ab9" />
@@ -194,10 +194,9 @@
 <li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/ntk.html">Gradient Descent dynamics and Neural Tangent Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/bnn.html">Bayesian Neural Networks</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="DeepLearningTheory/pf.html">Partition function of 1 HL FC NN (single output)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="DeepLearningTheory/relu.html">Extention for finite mean activation functions</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/pf.html">Partition function of 1 HL FC NN (single output)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/relu_pf.html">Extention for finite mean activation functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/single_var_pf.html">Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python notebooks</span></p>
 <ul class="nav bd-sidenav">
@@ -397,7 +396,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cited-references">Cited references:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do">To Do</a></li>
 </ul>
 </li>
 </ul>
@@ -439,6 +437,8 @@ The source code can be found in my GitHub profile at <a class="reference externa
 <li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/ntk.html">Gradient Descent dynamics and Neural Tangent Kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/bnn.html">Bayesian Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/pf.html">Partition function of 1 HL FC NN (single output)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/relu_pf.html">Extention for finite mean activation functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearningTheory/single_var_pf.html">Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -491,16 +491,6 @@ The source code can be found in my GitHub profile at <a class="reference externa
 </div>
 </div>
 </div>
-</section>
-<section id="to-do">
-<h2>To Do<a class="headerlink" href="#to-do" title="Link to this heading">#</a></h2>
-<ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Automatic Differentiation</p></li>
-<li><p>[ ]</p></li>
-<li><p>[ ]</p></li>
-<li><p>[ ]</p></li>
-<li><p>[ ]</p></li>
-</ul>
 </section>
 </section>
 
@@ -565,7 +555,6 @@ The source code can be found in my GitHub profile at <a class="reference externa
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cited-references">Cited references:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do">To Do</a></li>
 </ul>
 </li>
 </ul>
