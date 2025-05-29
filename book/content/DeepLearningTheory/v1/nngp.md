@@ -7,8 +7,7 @@
 :name: def-GP
 A function $f:\mathbb{R}^{N_0} \to \mathbb{R}$ is draw from a GP with mean function $\mu:\mathbb{R}^{N_0} \to \mathbb{R}$ and
 kernel function $K:\mathbb{R}^{N_0} \times \mathbb{R}^{N_0} \to \mathbb{R}$ if, for every finite collection of inputs $\{x_1, \dots x_n\}$,
-the vector of outputs $\{f(x_1), \dots f(x_n)\}$ is draw from a $n-$multivariate normal distribution with mean vector and covariance matrix
-given with components:
+the vector of outputs $\{f(x_1), \dots f(x_n)\}$ is draw from a $n-$multivariate normal distribution with mean vector and covariance matrix with components:
 
 $$
 \mu_i = \mu(x_i), \qquad K_{ij} = K(x_i, x_j).
@@ -19,7 +18,7 @@ $$
 We also require for the finite collections of rvs to satisfy the natural *marginalization property*, 
 that is, given any subset of a given (finite) collection of rvs, the covariance matrix calculated with 
 the definition has to coincide with the relevant sub-matrix of the full covariance matrix. 
-If this condition is satisfied, then the **Kolmogorov extention theorem** guarantees the existence of 
+If this condition is satisfied, then the **Kolmogorov extension theorem** guarantees the existence of 
 the stochastic process.  
 
 ```

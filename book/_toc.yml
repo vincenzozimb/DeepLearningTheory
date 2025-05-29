@@ -15,14 +15,25 @@ parts:
 ####################
 # DL theory
 - caption: Deep Learning Theory
-  numbered: false
+  numbered: true
   chapters:
-  - file: content/DeepLearningTheory/nngp
-  - file: content/DeepLearningTheory/ntk
-  - file: content/DeepLearningTheory/bnn
-  - file: content/DeepLearningTheory/pf
-  - file: content/DeepLearningTheory/relu_pf
-  - file: content/DeepLearningTheory/single_var_pf.md
+  - file: content/DeepLearningTheory/BayesianSupervised/intro
+    sections:
+    - file: content/DeepLearningTheory/BayesianSupervised/conventions
+    - file: content/DeepLearningTheory/BayesianSupervised/blr
+    - file: content/DeepLearningTheory/BayesianSupervised/non_parametric
+    - file: content/DeepLearningTheory/BayesianSupervised/gp
+    - file: content/DeepLearningTheory/BayesianSupervised/bnn_iw
+    - file: content/DeepLearningTheory/BayesianSupervised/dlbnn
+  - file: content/DeepLearningTheory/v1/intro
+    sections:
+    - file: content/DeepLearningTheory/v1/nngp
+    - file: content/DeepLearningTheory/v1/ntk
+    - file: content/DeepLearningTheory/v1/bnn
+    - file: content/DeepLearningTheory/v1/pf
+    - file: content/DeepLearningTheory/v1/relu_pf
+    - file: content/DeepLearningTheory/v1/single_var_pf.md
+
 
 ####################
 # Notebooks
@@ -31,12 +42,6 @@ parts:
   chapters:
   - file: notebooks/keras
 
-####################
-# COURSE NOTES
-- caption: Course Notes
-  numbered: false
-  chapters:
-  - file: content/course
 
 ####################
 # test

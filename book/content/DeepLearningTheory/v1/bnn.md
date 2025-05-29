@@ -15,7 +15,7 @@ $$
 So the labels are not given directly by the output of the NN, but some noise is present. Physically speaking, we assume this noise to be regulated
 by a parameter $T=\beta^{-1}$ that we call "temperature", as usualy done in statistical mechanics.
 
-The distribution over the inputs $x$ is not being modelled, so, from a bayesian point of view, $x$ can be formally regarder as a hyperparameter.
+The distribution over the inputs $x$ is not being modelled, so, from a bayesian point of view, $x$ can be formally regarder as a hyperparameter (consider though that in Statistical Learning Theory the existence of the distribution $p(x)$ is assumed).
 
 We assume the parameters $\theta$ to be rvs, with some prior $p(\theta)$.
 

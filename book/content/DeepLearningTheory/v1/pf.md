@@ -485,7 +485,7 @@ And the result is:
     \frac{N_1}{2} \beta^{-P/2} \int dQ d \bar{Q}
     (1+Q)^{-\frac{N_1}{2}} e^{\frac{N_1}{2}Q\bar{Q}}
     |\det \tilde{K} |^{-1/2} \exp \left(
-        -\frac{1}{2} y^T \cdot \tilde{K} \cdot y
+        -\frac{1}{2} y^T \cdot \tilde{K}^{-1} \cdot y
     \right)
 
 \end{equation}
