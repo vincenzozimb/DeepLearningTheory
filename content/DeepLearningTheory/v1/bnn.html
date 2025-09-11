@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Bayesian Neural Networks &#8212; Deep Learning Theory</title>
+    <title>2.3. Bayesian Neural Networks &#8212; Deep Learning Theory</title>
   
   
   
@@ -18,55 +18,55 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=e85b9ab9" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/DeepLearningTheory/bnn';</script>
-    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/DeepLearningTheory/bnn.html" />
-    <link rel="icon" href="../../_static/logo.png"/>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Partition function of 1 HL FC NN (single output)" href="pf.html" />
-    <link rel="prev" title="Gradient Descent dynamics and Neural Tangent Kernel" href="ntk.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/DeepLearningTheory/v1/bnn';</script>
+    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/DeepLearningTheory/v1/bnn.html" />
+    <link rel="icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2.4. Partition function of 1 HL FC NN (single output)" href="pf.html" />
+    <link rel="prev" title="2.2. Gradient Descent dynamics and Neural Tangent Kernel" href="ntk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -98,7 +98,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../../search.html"
+      action="../../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -147,7 +147,7 @@
     
   
 
-<a class="navbar-brand logo" href="../welcome.html">
+<a class="navbar-brand logo" href="../../welcome.html">
   
   
   
@@ -158,8 +158,8 @@
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Deep Learning Theory - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Deep Learning Theory - Home"/>`);</script>
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Deep Learning Theory - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Deep Learning Theory - Home"/>`);</script>
   
   
 </a></div>
@@ -179,51 +179,59 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../welcome.html">
+                <a class="reference internal" href="../../welcome.html">
                     Welcome
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../formulae.html">Tables, formulae</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formulae.html">Tables, formulae</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning Theory</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="nngp.html">Neural Networks and Gaussian Processes correspondence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ntk.html">Gradient Descent dynamics and Neural Tangent Kernel</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bayesian Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pf.html">Partition function of 1 HL FC NN (single output)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="relu_pf.html">Extention for finite mean activation functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="single_var_pf.html">Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../BayesianSupervised/intro.html">1. Topics in Bayesian Supervised Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../BayesianSupervised/conventions.html">1.1. Conventions and notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BayesianSupervised/blr.html">1.2. Bayesian Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BayesianSupervised/non_parametric.html">1.3. Intermezzo: parametric vs non-parametric bayesian models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BayesianSupervised/gp.html">1.4. Gaussian Process Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BayesianSupervised/bnn_iw.html">1.5. Infinite-width limit for bayesian FC NN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BayesianSupervised/dlbnn.html">1.6. Bayesian Deep Linear NN</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. First version of the calculations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nngp.html">2.1. Neural Networks and Gaussian Processes correspondence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ntk.html">2.2. Gradient Descent dynamics and Neural Tangent Kernel</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Bayesian Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pf.html">2.4. Partition function of 1 HL FC NN (single output)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="relu_pf.html">2.5. Extention for finite mean activation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_var_pf.html">2.6. Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../notebooks/keras.html">MNIST with Keras</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Notes</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../course.html">Course: “Advanced Statistical Mechanics: Introduction to deep learning theory”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/keras.html">MNIST with Keras</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing layout</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../instructions.html">Instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Test/test1.html">Test 1</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Test/test2.html">Test 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../Test/test21.html">Test 2.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Test/test211.html">Test 211</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Test/test212.html">Test 212</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../instructions.html">Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Test/test1.html">Test 1</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Test/test2.html">Test 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Test/test21.html">Test 2.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Test/test211.html">Test 211</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Test/test212.html">Test 212</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../Test/test22.html">Test 2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Test/test23.html">Test 2.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Test/test22.html">Test 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Test/test23.html">Test 2.3</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../Test/test3.html">Test 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Test/test4.html">Test 4</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Test/test5.html">Test 5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Test/test51.html">Test 5.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Test/test52.html">Test 5.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Test/test3.html">Test 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Test/test4.html">Test 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Test/test5.html">Test 5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Test/test51.html">Test 5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Test/test52.html">Test 5.2</a></li>
 </ul>
 </details></li>
 </ul>
@@ -295,7 +303,7 @@
       
       
       
-      <li><a href="../../_sources/content/DeepLearningTheory/bnn.md" target="_blank"
+      <li><a href="../../../_sources/content/DeepLearningTheory/v1/bnn.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -389,10 +397,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive">Posterior-predictive</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-and-neals-theory">Posterior-predictive and Neal’s theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observables-calculation">Observables calculation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.3.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive">2.3.2. Posterior-predictive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-and-neals-theory">2.3.3. Posterior-predictive and Neal’s theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observables-calculation">2.3.4. Observables calculation</a></li>
 </ul>
             </nav>
         </div>
@@ -405,9 +413,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bayesian-neural-networks">
-<h1>Bayesian Neural Networks<a class="headerlink" href="#bayesian-neural-networks" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2.3. </span>Bayesian Neural Networks<a class="headerlink" href="#bayesian-neural-networks" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>A NN is a function <span class="math notranslate nohighlight">\(x \mapsto f_\theta(x)\)</span>, where <span class="math notranslate nohighlight">\(\theta\)</span> collectively denotes all the parameters.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{D}=\{ x_i, y_i \}_{i=1}^n \equiv (\vec{x}, \vec{y})\)</span> be the (training) dataset.</p>
 <p>Assume a probabilistic model where the output are rvs (random variables) and the data generating model is gaussian:</p>
@@ -417,7 +425,7 @@ y \mid x, \theta \sim \mathcal{N}(f_\theta(x), T)
 \]</div>
 <p>So the labels are not given directly by the output of the NN, but some noise is present. Physically speaking, we assume this noise to be regulated
 by a parameter <span class="math notranslate nohighlight">\(T=\beta^{-1}\)</span> that we call “temperature”, as usualy done in statistical mechanics.</p>
-<p>The distribution over the inputs <span class="math notranslate nohighlight">\(x\)</span> is not being modelled, so, from a bayesian point of view, <span class="math notranslate nohighlight">\(x\)</span> can be formally regarder as a hyperparameter.</p>
+<p>The distribution over the inputs <span class="math notranslate nohighlight">\(x\)</span> is not being modelled, so, from a bayesian point of view, <span class="math notranslate nohighlight">\(x\)</span> can be formally regarder as a hyperparameter (consider though that in Statistical Learning Theory the existence of the distribution <span class="math notranslate nohighlight">\(p(x)\)</span> is assumed).</p>
 <p>We assume the parameters <span class="math notranslate nohighlight">\(\theta\)</span> to be rvs, with some prior <span class="math notranslate nohighlight">\(p(\theta)\)</span>.</p>
 <p>The posterior is then:</p>
 <div class="math notranslate nohighlight">
@@ -450,7 +458,7 @@ p(\theta \mid \mathcal{D}) &amp;= \frac{1}{\mathcal{Z}} e^{-\beta \mathcal{L}(\t
 </div>
 </section>
 <section id="posterior-predictive">
-<h2>Posterior-predictive<a class="headerlink" href="#posterior-predictive" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3.2. </span>Posterior-predictive<a class="headerlink" href="#posterior-predictive" title="Link to this heading">#</a></h2>
 <p>We are interested in finding the posterior predictive distribution of <span class="math notranslate nohighlight">\(y_0 \mid x_0, \mathcal{D}\)</span>, where <span class="math notranslate nohighlight">\(x_0\)</span> is a new (unseen) test data.
 This distribution is given by:</p>
 <div class="math notranslate nohighlight">
@@ -470,7 +478,7 @@ p(\theta \mid \mathcal{D}) \propto p(\theta) \prod_{i=1}^n p(y_i \mid x_i, \thet
 <p>This formulation is problematic because the posterior predictive is given as an integral in a large number of dimension!</p>
 </section>
 <section id="posterior-predictive-and-neals-theory">
-<h2>Posterior-predictive and Neal’s theory<a class="headerlink" href="#posterior-predictive-and-neals-theory" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3.3. </span>Posterior-predictive and Neal’s theory<a class="headerlink" href="#posterior-predictive-and-neals-theory" title="Link to this heading">#</a></h2>
 <p>If we choose gaussian prior for the parameters, in the infinite-width limit Neal’s theory (and its extension for deep NN) ensures that the output function of the NN is a gaussian process, <span class="math notranslate nohighlight">\(f \sim \mathcal{GP}(0, K)\)</span>, where <span class="math notranslate nohighlight">\(K\)</span> is the NNGP kernel.</p>
 <p>This means that, for every finite set of input values, like the <span class="math notranslate nohighlight">\(\vec{x}\)</span> in the dataset <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>, the output values <span class="math notranslate nohighlight">\(\vec{f} = [ f_\theta(x_i); i=1,\dots,n ]\)</span> are normally distributed:</p>
 <div class="math notranslate nohighlight">
@@ -500,7 +508,7 @@ p(f_0 \mid x_0, \mathcal{D}) &amp;= \int d\vec{f} ~ p(f_0, \vec{f} \mid \vec{x},
     \end{bmatrix}
 \right)
 \end{align*}\]</div>
-<p>This is a known integral in GP theory (see for example <span id="id1">[<a class="reference internal" href="../welcome.html#id6" title="Carl Edward Rasmussen and Christopher K. I. Williams. Gaussian Processes for Machine Learning. The MIT Press, 2006.">RW06</a>]</span>), and the result is:</p>
+<p>This is a known integral in GP theory (see for example <span id="id1">[<a class="reference internal" href="../../welcome.html#id6" title="Carl Edward Rasmussen and Christopher K. I. Williams. Gaussian Processes for Machine Learning. The MIT Press, 2006.">RW06</a>]</span>), and the result is:</p>
 <div class="math notranslate nohighlight">
 \[
 f_0 \mid x_0, \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
@@ -524,7 +532,7 @@ f_0 \mid x_0, \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
 <p>So, thanks to Neal’s theory, it is much simpler to sample network outputs from the posterior predictive! We just need to calculate the NNGP kernel.</p>
 </section>
 <section id="observables-calculation">
-<h2>Observables calculation<a class="headerlink" href="#observables-calculation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3.4. </span>Observables calculation<a class="headerlink" href="#observables-calculation" title="Link to this heading">#</a></h2>
 <p>In the bayesian/stat-mech approach, the average test error over a new (unseen) example is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -551,7 +559,7 @@ f_0 \mid x_0, \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
         },
         kernelOptions: {
             name: "python3",
-            path: "./content/DeepLearningTheory"
+            path: "./content/DeepLearningTheory/v1"
         },
         predefinedOutput: true
     }
@@ -574,7 +582,7 @@ f_0 \mid x_0, \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Gradient Descent dynamics and Neural Tangent Kernel</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>Gradient Descent dynamics and Neural Tangent Kernel</p>
       </div>
     </a>
     <a class="right-next"
@@ -582,7 +590,7 @@ f_0 \mid x_0, \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Partition function of 1 HL FC NN (single output)</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Partition function of 1 HL FC NN (single output)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -602,10 +610,10 @@ f_0 \mid x_0, \mathcal{D} \sim \mathcal{N}(\bar{\mu}, \bar{K})
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive">Posterior-predictive</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-and-neals-theory">Posterior-predictive and Neal’s theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observables-calculation">Observables calculation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.3.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive">2.3.2. Posterior-predictive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-and-neals-theory">2.3.3. Posterior-predictive and Neal’s theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observables-calculation">2.3.4. Observables calculation</a></li>
 </ul>
   </nav></div>
 
@@ -654,8 +662,8 @@ By Vincenzo Zimbardo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
