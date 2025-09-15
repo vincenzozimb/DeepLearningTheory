@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>9.3. Intermezzo: parametric vs non-parametric bayesian models &#8212; Deep Learning Theory</title>
+    <title>2. Review of statistics &#8212; Deep Learning Theory</title>
   
   
   
@@ -18,53 +18,53 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=e85b9ab9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/DeepLearningTheory/BayesianSupervised/non_parametric';</script>
-    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/DeepLearningTheory/BayesianSupervised/non_parametric.html" />
-    <link rel="icon" href="../../../_static/logo.png"/>
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="9.4. Gaussian Process Regression" href="gp.html" />
-    <link rel="prev" title="9.2. Bayesian Linear Regression" href="blr.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter2/statistics';</script>
+    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/chapter2/statistics.html" />
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. A first encounter with ML and the supervised setting" href="../chapter3/ml.html" />
+    <link rel="prev" title="1. Statistical Mechanics for the statistician" href="../chapter1/statmech.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -96,7 +96,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../../../search.html"
+      action="../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -145,7 +145,7 @@
     
   
 
-<a class="navbar-brand logo" href="../../welcome.html">
+<a class="navbar-brand logo" href="../welcome.html">
   
   
   
@@ -156,8 +156,8 @@
       
     
     
-    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Deep Learning Theory - Home"/>
-    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Deep Learning Theory - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Deep Learning Theory - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Deep Learning Theory - Home"/>`);</script>
   
   
 </a></div>
@@ -177,66 +177,66 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../../welcome.html">
+                <a class="reference internal" href="../welcome.html">
                     Welcome
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter0/misc.html">Useful mathematical facts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter0/misc.html">Useful mathematical facts</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter1/statmech.html">1. Statistical Mechanics for the statistician</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/statmech.html">1. Statistical Mechanics for the statistician</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Review of statistics</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter2/statistics.html">2. Review of statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/ml.html">3. A first encounter with ML and the supervised setting</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter3/ml.html">3. A first encounter with ML and the supervised setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/bayesiansupervised.html">4. Bayesian Supervised Learning</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter4/bayesiansupervised.html">4. Bayesian Supervised Learning</a></li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapter5/infinitewidth.html">5. Infinite width limit of Neural Networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../chapter5/ntk.html">5.1. NTK regime</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../chapter5/nngp.html">5.2. NNGP regime</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/infinitewidth.html">5. Infinite width limit of Neural Networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/ntk.html">5.1. NTK regime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/nngp.html">5.2. NNGP regime</a></li>
 </ul>
 </details></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter6/proportional.html">6. Neural Network in the proportional limit and renormalized theories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/proportional.html">6. Neural Network in the proportional limit and renormalized theories</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter7/learningalgorithms.html">7. Learning algorithms and optimization methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter7/learningalgorithms.html">7. Learning algorithms and optimization methods</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter8/sampling.html">8. Sampling theory and algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter8/sampling.html">8. Sampling theory and algorithms</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Old Chapter, deep learning theory</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">9. Topics in Bayesian Supervised Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="conventions.html">9.1. Conventions and notation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="blr.html">9.2. Bayesian Linear Regression</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.3. Intermezzo: parametric vs non-parametric bayesian models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gp.html">9.4. Gaussian Process Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bnn_iw.html">9.5. Infinite-width limit for bayesian FC NN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dlbnn.html">9.6. Bayesian Deep Linear NN</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DeepLearningTheory/BayesianSupervised/intro.html">9. Topics in Bayesian Supervised Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/BayesianSupervised/conventions.html">9.1. Conventions and notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/BayesianSupervised/blr.html">9.2. Bayesian Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/BayesianSupervised/non_parametric.html">9.3. Intermezzo: parametric vs non-parametric bayesian models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/BayesianSupervised/gp.html">9.4. Gaussian Process Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/BayesianSupervised/bnn_iw.html">9.5. Infinite-width limit for bayesian FC NN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/BayesianSupervised/dlbnn.html">9.6. Bayesian Deep Linear NN</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../v1/intro.html">10. First version of the calculations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../v1/nngp.html">10.1. Neural Networks and Gaussian Processes correspondence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../v1/ntk.html">10.2. Gradient Descent dynamics and Neural Tangent Kernel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../v1/bnn.html">10.3. Bayesian Neural Networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../v1/pf.html">10.4. Partition function of 1 HL FC NN (single output)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../v1/relu_pf.html">10.5. Extention for finite mean activation functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../v1/single_var_pf.html">10.6. Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DeepLearningTheory/v1/intro.html">10. First version of the calculations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/v1/nngp.html">10.1. Neural Networks and Gaussian Processes correspondence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/v1/ntk.html">10.2. Gradient Descent dynamics and Neural Tangent Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/v1/bnn.html">10.3. Bayesian Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/v1/pf.html">10.4. Partition function of 1 HL FC NN (single output)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/v1/relu_pf.html">10.5. Extention for finite mean activation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearningTheory/v1/single_var_pf.html">10.6. Single vatiable expression for <span class="math notranslate nohighlight">\(S\)</span> in the case of zero-mean activation functions</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">dev</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../instructions.html">Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instructions.html">Instructions</a></li>
 </ul>
 
     </div>
@@ -306,7 +306,7 @@
       
       
       
-      <li><a href="../../../_sources/content/DeepLearningTheory/BayesianSupervised/non_parametric.md" target="_blank"
+      <li><a href="../../_sources/content/chapter2/statistics.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -388,7 +388,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Intermezzo: parametric vs non-parametric bayesian models</h1>
+    <h1>Review of statistics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -402,8 +402,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="intermezzo-parametric-vs-non-parametric-bayesian-models">
-<h1><span class="section-number">9.3. </span>Intermezzo: parametric vs non-parametric bayesian models<a class="headerlink" href="#intermezzo-parametric-vs-non-parametric-bayesian-models" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="review-of-statistics">
+<h1><span class="section-number">2. </span>Review of statistics<a class="headerlink" href="#review-of-statistics" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -419,7 +419,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./content/DeepLearningTheory/BayesianSupervised"
+            path: "./content/chapter2"
         },
         predefinedOutput: true
     }
@@ -437,20 +437,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="blr.html"
+       href="../chapter1/statmech.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9.2. </span>Bayesian Linear Regression</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Statistical Mechanics for the statistician</p>
       </div>
     </a>
     <a class="right-next"
-       href="gp.html"
+       href="../chapter3/ml.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9.4. </span>Gaussian Process Regression</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>A first encounter with ML and the supervised setting</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -504,8 +504,8 @@ By Vincenzo Zimbardo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
