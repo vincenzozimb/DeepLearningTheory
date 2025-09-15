@@ -6,15 +6,82 @@ parts:
 
 ####################
 # MISCELLANEOUS
-- caption: Miscellaneous
+- caption: #Miscellaneous
   numbered: false
   chapters:
-  - file: content/formulae
+  - file: content/chapter0/misc
+
+
+####################
+# STAT MECH
+- caption: #StatMech
+  numbered: true
+  chapters:
+  - file: content/chapter1/statmech
+
+
+####################
+# STATISTICS
+- caption: #Statistics
+  numbered: true
+  chapters:
+  - file: content/chapter2/statistics
+
+
+####################
+# MACHINE LEARNING
+- caption: #Machine Learning
+  numbered: true
+  chapters:
+  - file: content/chapter3/ml
+
+
+####################
+# BAYESIAN SUPERVISED
+- caption: #Bayesian Supervised
+  numbered: true
+  chapters:
+  - file: content/chapter4/bayesiansupervised
+
+
+####################
+# INFINITE WIDTH LIMIT
+- caption: #Infinite Width limit of NNs
+  numbered: true
+  chapters:
+  - file: content/chapter5/infinitewidth
+    sections:
+      - file: content/chapter5/ntk
+      - file: content/chapter5/nngp
+
+
+####################
+# PROPORTIONAL REGIME
+- caption: #Bayesian NNs in the proportional regime
+  numbered: true
+  chapters:
+  - file: content/chapter6/proportional
+
+
+####################
+# LEARNING ALGORITHMS
+- caption: #Learning algorithms and optimization methods
+  numbered: true
+  chapters:
+  - file: content/chapter7/learningalgorithms
+
+
+####################
+# SAMPLING
+- caption: #Sampling theory and algorithms
+  numbered: true
+  chapters:
+  - file: content/chapter8/sampling
 
 
 ####################
 # DL theory
-- caption: Deep Learning Theory
+- caption: Old Chapter, deep learning theory
   numbered: true
   chapters:
   - file: content/DeepLearningTheory/BayesianSupervised/intro
@@ -36,31 +103,39 @@ parts:
 
 
 ####################
-# Notebooks
-- caption: Python notebooks
-  numbered: false
-  chapters:
-  - file: notebooks/keras
-
-
-####################
 # test
-- caption: Testing layout
+- caption: dev
   numbered: false
   chapters:
   - file: content/instructions
-  - file: content/Test/test1
-  - file: content/Test/test2
-    sections:
-      - file: content/Test/test21
-        sections:
-        - file: content/Test/test211
-        - file: content/Test/test212
-      - file: content/Test/test22
-      - file: content/Test/test23
-  - file: content/Test/test3
-  - file: content/Test/test4
-  - file: content/Test/test5
-    sections:
-    - file: content/Test/test51
-    - file: content/Test/test52
+
+
+# ####################
+# # Notebooks
+# - caption: Python notebooks
+#   numbered: false
+#   chapters:
+#   - file: notebooks/keras
+
+
+# ####################
+# # test
+# - caption: Testing layout
+#   numbered: false
+#   chapters:
+#   - file: content/instructions
+#   - file: content/Test/test1
+#   - file: content/Test/test2
+#     sections:
+#       - file: content/Test/test21
+#         sections:
+#         - file: content/Test/test211
+#         - file: content/Test/test212
+#       - file: content/Test/test22
+#       - file: content/Test/test23
+#   - file: content/Test/test3
+#   - file: content/Test/test4
+#   - file: content/Test/test5
+#     sections:
+#     - file: content/Test/test51
+#     - file: content/Test/test52

@@ -1,0 +1,1 @@
+# Neural Network in the proportional limit and renormalized theories

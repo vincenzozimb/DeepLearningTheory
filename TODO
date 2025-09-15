@@ -5,3 +5,13 @@
 - [ ] Add in relu_pf reference to equation in pf for performing substitution
 - [ ] Study Automatic Differentiation
 - [ ] Make in-chapter bibliography
+- [ ] Degrees of freedom in regression problem and regularization as a mean to reduce them.
+
+## To insert formulae chapter
+
+- Gaussian integrals:
+    - standard gaussian integral
+    - conditional distribution of a multivariate gaussian
+    - ``completing the square'' for quadratic forms
+    - gaussian integral with linear term
+    - ...

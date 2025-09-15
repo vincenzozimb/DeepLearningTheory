@@ -20,6 +20,6 @@ This is a work in progress!
 ```{tableofcontents}
 ```
 
-## Cited references:
+<!-- ## Cited references:
 ```{bibliography}
-```
+``` -->
