@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
@@ -410,6 +410,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-the-vec-trick">Proof of the “vec trick”</a></li>
 </ul>
@@ -425,6 +426,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="technicalities-kronecker-product-of-matrices-and-the-vectorization-operation">
 <h1>Technicalities: Kronecker product of matrices and the vectorization operation<a class="headerlink" href="#technicalities-kronecker-product-of-matrices-and-the-vectorization-operation" title="Link to this heading">#</a></h1>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h2>
 <p>If <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{n \times p}\)</span> and <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{m \times q}\)</span>, the <strong>Kronecker product</strong> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is the block-matrix defined by:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -446,6 +449,7 @@ document.write(`
 \end{bmatrix}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A_i \in \mathbb{R}^n\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th column of A.</p>
+</section>
 <section id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -537,7 +541,7 @@ Vec(a b^\top) = b \otimes a
 <p>To complete the proof, we need two facts:</p>
 <ul class="simple">
 <li><p>The vectorization operation is a <em>linear</em> operation</p></li>
-<li><p>For every matrix M, it is always possible to write it as:</p></li>
+<li><p>For every matrix M, it is always possible to write:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
@@ -551,7 +555,7 @@ M = \sum_{ij} M_{ij} e_i e_j^\top
     Vec(AMB^\top)   &amp;= Vec(A \sum_{ij} M_{ij} e_i e_j^\top B^\top) \\
                     &amp;= \sum_{ij} M_{ij} Vec(A e_i e_j^\top B^\top) \\
                     &amp;= \sum_{ij} M_{ij} Vec( (A e_i) (B e_j)^\top ) \\
-                    (10) &amp;= \sum_{ij} M_{ij} (B e_j) (A e_i) \\
+                    (10) &amp;= \sum_{ij} M_{ij} (B e_j) \otimes (A e_i) \\
                     (3) &amp;= \sum_{ij} M_{ij} (B \otimes A) (e_j \otimes e_i) \\
                     &amp;= (B \otimes A) \sum_{ij} M_{ij} (e_j \otimes e_i) \\
                     &amp;= (B \otimes A) \sum_{ij} M_{ij} Vec(e_i e_j^\top) \\
@@ -627,6 +631,7 @@ M = \sum_{ij} M_{ij} e_i e_j^\top
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-the-vec-trick">Proof of the “vec trick”</a></li>
 </ul>
