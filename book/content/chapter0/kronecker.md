@@ -1,5 +1,7 @@
 # Technicalities: Kronecker product of matrices and the vectorization operation
 
+## Definitions
+
 If $A \in \mathbb{R}^{n \times p}$ and $B \in \mathbb{R}^{m \times q}$, the **Kronecker product** of $A$ and $B$ is the block-matrix defined by:
 
 $$
@@ -116,7 +118,7 @@ To complete the proof, we need two facts:
 
 - The vectorization operation is a _linear_ operation
 
-- For every matrix M, it is always possible to write it as:
+- For every matrix M, it is always possible to write:
 
 $$
 M = \sum_{ij} M_{ij} e_i e_j^\top
@@ -132,7 +134,7 @@ $$
     Vec(AMB^\top)   &= Vec(A \sum_{ij} M_{ij} e_i e_j^\top B^\top) \\
                     &= \sum_{ij} M_{ij} Vec(A e_i e_j^\top B^\top) \\
                     &= \sum_{ij} M_{ij} Vec( (A e_i) (B e_j)^\top ) \\
-                    (10) &= \sum_{ij} M_{ij} (B e_j) (A e_i) \\
+                    (10) &= \sum_{ij} M_{ij} (B e_j) \otimes (A e_i) \\
                     (3) &= \sum_{ij} M_{ij} (B \otimes A) (e_j \otimes e_i) \\
                     &= (B \otimes A) \sum_{ij} M_{ij} (e_j \otimes e_i) \\
                     &= (B \otimes A) \sum_{ij} M_{ij} Vec(e_i e_j^\top) \\
