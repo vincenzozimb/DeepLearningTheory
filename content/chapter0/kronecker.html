@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Statistical Mechanics for the statistician &#8212; Deep Learning Theory</title>
+    <title>Technicalities: Kronecker product of matrices and the vectorization operation &#8212; Deep Learning Theory</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
@@ -58,13 +58,15 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter1/statmech';</script>
-    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/chapter1/statmech.html" />
+    <script>window.MathJax = {"tex": {"macros": {"Tr": ["{\\mathop{}\\!\\mathrm{Tr}}", 0], "det": ["{\\mathop{}\\!\\mathrm{det}}", 0]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter0/kronecker';</script>
+    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/chapter0/kronecker.html" />
     <link rel="icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2. Review of statistics" href="../chapter2/statistics.html" />
-    <link rel="prev" title="Useful mathematical facts" href="../chapter0/misc.html" />
+    <link rel="next" title="1. Review of statistics" href="../chapter1/statistics.html" />
+    <link rel="prev" title="Useful mathematical facts" href="misc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,20 +184,28 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter0/misc.html">Useful mathematical facts</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="misc.html">Useful mathematical facts</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Technicalities: Kronecker product of matrices and the vectorization operation</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Statistical Mechanics for the statistician</a></li>
+</details></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter2/statistics.html">2. Review of statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/statistics.html">1. Review of statistics</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/statmech.html">2. Statistical Mechanics for the statistician</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../chapter3/ml.html">3. A first encounter with ML and the supervised setting</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter4/bayesiansupervised.html">4. Bayesian Supervised Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/bayesiansupervised.html">4. Bayesian Supervised Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/bayeslinreg.html">4.1. Bayesian Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/intermezzo.html">4.2. Intermezzo: parametric vs non-parametric bayesian model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/gpregression.html">4.3. Gaussian Process Regression</a></li>
+</ul>
+</details></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/infinitewidth.html">5. Infinite width limit of Neural Networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -306,7 +316,7 @@
       
       
       
-      <li><a href="../../_sources/content/chapter1/statmech.md" target="_blank"
+      <li><a href="../../_sources/content/chapter0/kronecker.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +387,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -388,11 +400,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Statistical Mechanics for the statistician</h1>
+    <h1>Technicalities: Kronecker product of matrices and the vectorization operation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-the-vec-trick">Proof of the “vec trick”</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -402,8 +423,144 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="statistical-mechanics-for-the-statistician">
-<h1><span class="section-number">1. </span>Statistical Mechanics for the statistician<a class="headerlink" href="#statistical-mechanics-for-the-statistician" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="technicalities-kronecker-product-of-matrices-and-the-vectorization-operation">
+<h1>Technicalities: Kronecker product of matrices and the vectorization operation<a class="headerlink" href="#technicalities-kronecker-product-of-matrices-and-the-vectorization-operation" title="Link to this heading">#</a></h1>
+<p>If <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{n \times p}\)</span> and <span class="math notranslate nohighlight">\(B \in \mathbb{R}^{m \times q}\)</span>, the <strong>Kronecker product</strong> of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is the block-matrix defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{R}^{nm \times pq} \ni A \otimes B = \{ A_{ij} B \}_{ij} = 
+\begin{bmatrix} 
+    A_{11}B &amp; \dots     &amp; A_{1p}B \\
+    \vdots  &amp; \ddots    &amp; \\
+    A_{n1}B &amp;           &amp; A_{np}B 
+\end{bmatrix}
+\end{split}\]</div>
+<p>The <strong>vectorization</strong> of a matrix is obtained by stacking the columns (for vectors, I always mean <em>column</em> vectors)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{R}^{np} \ni Vec(A) :=
+\begin{bmatrix} 
+    A_{1}   \\
+    \vdots  \\
+    A_{p} 
+\end{bmatrix}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A_i \in \mathbb{R}^n\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th column of A.</p>
+<section id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(A \otimes (\cdot)\)</span> is a linear operator on matrices (easy to prove):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+A \otimes (c_1 B_1 + c_2 B_2) = c_1 A \otimes B_1 + c_2 A \otimes B_2
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Associativity (not so easy to prove):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+A \otimes (B \otimes C) = (A \otimes B) \otimes C
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Mixed product (not so difficult to prove). For matrices of compatible dimensions:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+(A \otimes B) (C \otimes D) = (AC) \otimes (BD)
+\]</div>
+<p>Pay attention to the dimension. This is the only possible result.</p>
+<ol class="arabic simple" start="4">
+<li><p>Transpose (easy to prove):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+(A \otimes B)^\top = A^\top \otimes B^\top
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Inverse (easy to prove using (3))</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+(A \otimes B)^{-1} = A^{-1} \otimes B^{-1}
+\]</div>
+<ol class="arabic simple" start="6">
+<li><p>Left matrix is a block matrix (easy to prove):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A =
+\begin{bmatrix} 
+    \alpha &amp; \beta  \\
+    \gamma &amp; \delta
+\end{bmatrix} 
+\Longrightarrow
+(A \otimes B) =
+\begin{bmatrix} 
+    \alpha \otimes B &amp; \beta \otimes B \\
+    \gamma \otimes B &amp; \delta \otimes B
+\end{bmatrix} 
+\end{split}\]</div>
+<ol class="arabic simple" start="7">
+<li><p>Trace (easy to prove):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\Tr(A \otimes B) = \Tr(A) \Tr(B)
+\]</div>
+<ol class="arabic simple" start="8">
+<li><p>Determinant:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+A \in \mathbb{R}^{n \times n}, B \in \mathbb{R}^{m \times m} \Longrightarrow \det(A \otimes B) = (\det A)^m (\det B)^n
+\]</div>
+<ol class="arabic simple" start="9">
+<li><p>Mixed Kronecker matrix - vector product, or “<strong>vec trick</strong>” (proof later):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+Vec(AMB^\top) = (B \otimes A) Vec(M)
+\]</div>
+<ol class="arabic simple" start="10">
+<li><p>Vectorization of a rank-one matrix (easy to prove):</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+a \in \mathbb{R}^n, b \in \mathbb{R}^m, ab^\top \in \mathbb{R}^{n \times m}
+\Longrightarrow
+Vec(a b^\top) = b \otimes a 
+\]</div>
+</section>
+<section id="proof-of-the-vec-trick">
+<h2>Proof of the “vec trick”<a class="headerlink" href="#proof-of-the-vec-trick" title="Link to this heading">#</a></h2>
+<p>To complete the proof, we need two facts:</p>
+<ul class="simple">
+<li><p>The vectorization operation is a <em>linear</em> operation</p></li>
+<li><p>For every matrix M, it is always possible to write it as:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+M = \sum_{ij} M_{ij} e_i e_j^\top
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(e_i, e_j\)</span> are the columns of the idendity matrices (of proper dimensions, here with a little abuse of notation I use the same symbol).</p>
+<p>The proof procedes as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    Vec(AMB^\top)   &amp;= Vec(A \sum_{ij} M_{ij} e_i e_j^\top B^\top) \\
+                    &amp;= \sum_{ij} M_{ij} Vec(A e_i e_j^\top B^\top) \\
+                    &amp;= \sum_{ij} M_{ij} Vec( (A e_i) (B e_j)^\top ) \\
+                    (10) &amp;= \sum_{ij} M_{ij} (B e_j) (A e_i) \\
+                    (3) &amp;= \sum_{ij} M_{ij} (B \otimes A) (e_j \otimes e_i) \\
+                    &amp;= (B \otimes A) \sum_{ij} M_{ij} (e_j \otimes e_i) \\
+                    &amp;= (B \otimes A) \sum_{ij} M_{ij} Vec(e_i e_j^\top) \\
+                    &amp;= (B \otimes A) Vec(\sum_{ij} M_{ij} e_i e_j^\top) \\
+                    &amp;= (B \otimes A) Vec(M) \\
+\end{aligned}
+\end{split}\]</div>
+<p>And the proof is completed <span class="math notranslate nohighlight">\(\square\)</span></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -419,7 +576,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./content/chapter1"
+            path: "./content/chapter0"
         },
         predefinedOutput: true
     }
@@ -437,7 +594,7 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../chapter0/misc.html"
+       href="misc.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -446,11 +603,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../chapter2/statistics.html"
+       href="../chapter1/statistics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Review of statistics</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Review of statistics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -460,6 +617,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-the-vec-trick">Proof of the “vec trick”</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

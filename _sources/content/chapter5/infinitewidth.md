@@ -2,6 +2,8 @@
 
 Infinite width limit of Neural Networks
 
+Contents:
+
 ```{tableofcontents}
 ```
 

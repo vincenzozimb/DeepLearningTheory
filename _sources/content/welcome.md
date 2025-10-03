@@ -2,7 +2,7 @@
 
 # Introduction
 
-This is a jupyter-book containing notes and calculation about Deep Learning Theory, PhD in Physics at the University of Parma.
+This website contains notes and calculation about Deep Learning Theory and general topics relevant to my PhD in Physics at the University of Parma.
 The source code can be found in my GitHub profile at [this link](https://github.com/vincenzozimb/DeepLearningTheory.git).
 
 ```{admonition} Warning

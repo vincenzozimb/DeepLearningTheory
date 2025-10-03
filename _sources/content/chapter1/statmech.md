@@ -1,1 +1,0 @@
-# Statistical Mechanics for the statistician

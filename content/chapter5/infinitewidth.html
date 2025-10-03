@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="5.1. NTK regime" href="ntk.html" />
-    <link rel="prev" title="4. Bayesian Supervised Learning" href="../chapter4/bayesiansupervised.html" />
+    <link rel="prev" title="4.3. Gaussian Process Regression" href="../chapter4/gpregression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,19 +183,27 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter0/misc.html">Useful mathematical facts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter0/misc.html">Useful mathematical facts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter0/kronecker.html">Technicalities: Kronecker product of matrices and the vectorization operation</a></li>
+</ul>
+</details></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter1/statmech.html">1. Statistical Mechanics for the statistician</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/statistics.html">1. Review of statistics</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter2/statistics.html">2. Review of statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/statmech.html">2. Statistical Mechanics for the statistician</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../chapter3/ml.html">3. A first encounter with ML and the supervised setting</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter4/bayesiansupervised.html">4. Bayesian Supervised Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/bayesiansupervised.html">4. Bayesian Supervised Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/bayeslinreg.html">4.1. Bayesian Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/intermezzo.html">4.2. Intermezzo: parametric vs non-parametric bayesian model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/gpregression.html">4.3. Gaussian Process Regression</a></li>
+</ul>
+</details></li>
 </ul>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Infinite width limit of Neural Networks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -415,6 +423,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="infinite-width-limit-of-neural-networks">
 <h1><span class="section-number">5. </span>Infinite width limit of Neural Networks<a class="headerlink" href="#infinite-width-limit-of-neural-networks" title="Link to this heading">#</a></h1>
 <p>Infinite width limit of Neural Networks</p>
+<p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ntk.html">5.1. NTK regime</a></li>
@@ -482,12 +491,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../chapter4/bayesiansupervised.html"
+       href="../chapter4/gpregression.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Bayesian Supervised Learning</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Gaussian Process Regression</p>
       </div>
     </a>
     <a class="right-next"

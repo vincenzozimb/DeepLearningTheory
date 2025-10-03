@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Review of statistics &#8212; Deep Learning Theory</title>
+    <title>2. Statistical Mechanics for the statistician &#8212; Deep Learning Theory</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e85b9ab9" />
@@ -58,13 +58,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter2/statistics';</script>
-    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/chapter2/statistics.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter2/statmech';</script>
+    <link rel="canonical" href="https://vincenzozimb.github.io/DeepLearningTheory/content/chapter2/statmech.html" />
     <link rel="icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3. A first encounter with ML and the supervised setting" href="../chapter3/ml.html" />
-    <link rel="prev" title="1. Statistical Mechanics for the statistician" href="../chapter1/statmech.html" />
+    <link rel="prev" title="1. Review of statistics" href="../chapter1/statistics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,19 +183,27 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter0/misc.html">Useful mathematical facts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter0/misc.html">Useful mathematical facts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter0/kronecker.html">Technicalities: Kronecker product of matrices and the vectorization operation</a></li>
+</ul>
+</details></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter1/statmech.html">1. Statistical Mechanics for the statistician</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/statistics.html">1. Review of statistics</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Review of statistics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Statistical Mechanics for the statistician</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../chapter3/ml.html">3. A first encounter with ML and the supervised setting</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter4/bayesiansupervised.html">4. Bayesian Supervised Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/bayesiansupervised.html">4. Bayesian Supervised Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/bayeslinreg.html">4.1. Bayesian Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/intermezzo.html">4.2. Intermezzo: parametric vs non-parametric bayesian model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/gpregression.html">4.3. Gaussian Process Regression</a></li>
+</ul>
+</details></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/infinitewidth.html">5. Infinite width limit of Neural Networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -306,7 +314,7 @@
       
       
       
-      <li><a href="../../_sources/content/chapter2/statistics.md" target="_blank"
+      <li><a href="../../_sources/content/chapter2/statmech.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -388,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Review of statistics</h1>
+    <h1>Statistical Mechanics for the statistician</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -402,8 +410,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="review-of-statistics">
-<h1><span class="section-number">2. </span>Review of statistics<a class="headerlink" href="#review-of-statistics" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="statistical-mechanics-for-the-statistician">
+<h1><span class="section-number">2. </span>Statistical Mechanics for the statistician<a class="headerlink" href="#statistical-mechanics-for-the-statistician" title="Link to this heading">#</a></h1>
+<p>To write (not necessarly in this order):</p>
+<ul class="simple">
+<li><p>Notion of information theory</p></li>
+<li><p>Classical spin systems, entropy, free energy, …</p></li>
+<li><p>Maximum entropy method</p>
+<ul>
+<li><p>some examples in the continuous case</p></li>
+<li><p>derivation of the spin hamiltonian from max entropy</p></li>
+</ul>
+</li>
+<li><p>Mean Field for Ising</p></li>
+<li><p>Curie-Weiss model</p></li>
+<li><p>…</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -437,12 +459,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../chapter1/statmech.html"
+       href="../chapter1/statistics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Statistical Mechanics for the statistician</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Review of statistics</p>
       </div>
     </a>
     <a class="right-next"
