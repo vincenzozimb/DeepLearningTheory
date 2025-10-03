@@ -10,14 +10,8 @@ parts:
   numbered: false
   chapters:
   - file: content/chapter0/misc
-
-
-####################
-# STAT MECH
-- caption: #StatMech
-  numbered: true
-  chapters:
-  - file: content/chapter1/statmech
+    sections:
+    - file: content/chapter0/kronecker
 
 
 ####################
@@ -25,7 +19,15 @@ parts:
 - caption: #Statistics
   numbered: true
   chapters:
-  - file: content/chapter2/statistics
+  - file: content/chapter1/statistics
+
+
+####################
+# STAT MECH
+- caption: #StatMech
+  numbered: true
+  chapters:
+  - file: content/chapter2/statmech
 
 
 ####################
@@ -42,6 +44,10 @@ parts:
   numbered: true
   chapters:
   - file: content/chapter4/bayesiansupervised
+    sections:
+      - file: content/chapter4/bayeslinreg
+      - file: content/chapter4/intermezzo
+      - file: content/chapter4/gpregression
 
 
 ####################

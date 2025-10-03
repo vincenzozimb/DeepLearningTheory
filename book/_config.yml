@@ -123,5 +123,13 @@ sphinx:
     #       "dq": "\\dot{q}"
     #       "dm": "\\dot{m}"
     #       "du": "\\dot{u}"
+    mathjax3_config:
+      tex:
+        macros:
+          Tr: ["{\\mathop{}\\!\\mathrm{Tr}}", 0]    # user defined command for trace
+          det: ["{\\mathop{}\\!\\mathrm{det}}", 0]  # user defined command for determinant
+          # top: ["{\\mathsf{T}}", 0]                 # user defined command for transpose (\top doesn't render properly on html)
+
+
 
 
