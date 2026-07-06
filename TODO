@@ -15,3 +15,39 @@
     - ``completing the square'' for quadratic forms
     - gaussian integral with linear term
     - ...
+
+
+## Website organization (not sorted)
+
+- StatMech (?)
+    - Basi
+    - RG
+    - Non equilibrium and Transition Path Theory
+    - Caldeira-Legget model (to generalized Langevin eq)
+
+- Machine Learning
+    - Supervised
+        - Statistical Learning Theory
+        - ...
+    - Unsupervised
+        - ...
+    - Cenni al reinforcment e robe varie
+
+- Metodi Monte Carlo
+    - Langevin MC
+    - Langevin sulla sfera
+   
+- Spin glasses?
+
+- Statistica e inferenza (elementi)
+        - Stimatori e cose di base
+        - Bayesian
+        - Bayesian non parametric
+            - ...
+        - Decision theory
+
+ - Geometria Differenziale (elementi)
+ - Information Geometry
+ - Information theory
+    - Maximum entropy methods
+    - Information-theoretic derivation of the CLT

@@ -9,4 +9,5 @@ To write (not necessarly in this order):
     - derivation of the spin hamiltonian from max entropy
 - Mean Field for Ising
 - Curie-Weiss model
+- Caldeira-Legget model and langevin equations
 - ...

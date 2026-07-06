@@ -36,6 +36,9 @@ parts:
   numbered: true
   chapters:
   - file: content/chapter3/ml
+    sections:
+      - file: content/chapter3/linregression
+      - file: content/chapter3/nn
 
 
 ####################
